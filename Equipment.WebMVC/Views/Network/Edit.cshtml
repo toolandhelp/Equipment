@@ -1,0 +1,461 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/main.css">
+    <title>NetworkEdit</title>
+    <style type="text/css">
+        /*弹出框btn*/
+        .Treeoperation {
+            cursor: pointer;
+            border: 0;
+            width: 57px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            background: #00b0c7;
+            color: #FFF;
+            font-size: 12px;
+            letter-spacing: 2px;
+            padding: 0 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="content">
+        <h3 class="content-title">
+            网络情况管理
+        </h3>
+        <div class="operation-box">
+            <div class="btn-box">
+                <a href="javascript:void(0);" class="operation confirm"  id="BtnSubmitOperate">确认</a>
+                <a href="javascript:void(0);" class="operation cancel" id="BtnBackOperate">返回</a>
+            </div>
+        </div>
+        <div class="table-input">
+            <table>
+                <tr>
+                    <td class="blank" colspan="99"></td>
+                </tr>
+                <tr>
+                    <td>部门</td>
+                    <td colspan="99">
+                        <input type="text" id="bm" readonly="readonly">
+                        <input type="hidden" id="hf_bm" />
+                        <span class="unit">
+                            <a id="btn_select" href="javascript:void(0);">
+                                选择
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w20">三层交换机</td>
+                    <td class="w18"><input type="number" id="scjhj" ><span class="unit">台</span></td>
+                    <td class="w23">型号</td>
+                    <td class="w34"><input type="text" id="scjhjxh" ></td>
+                    <td class="w23">品牌</td>
+                    <td class="w34"><input type="text" id="scjhjpp"></td>
+                </tr>
+                <tr>
+                    <td class="w20">二层交换机</td>
+                    <td class="w18"><input type="number" id="ecjhj"><span class="unit">台</span></td>
+                    <td class="w23">型号</td>
+                    <td class="w34"><input type="text"  id="ecjhjxh"></td>
+                    <td class="w23">品牌</td> 
+                    <td class="w34"><input type="text" id="ecjhjpp"></td>
+                </tr>
+                <tr>
+                    <td class="w20">路由器</td>
+                    <td class="w18"><input type="number" id="lyq" ><span class="unit">个</span></td>
+                    <td class="w23">型号</td>
+                    <td class="w34"><input type="text" id="lyqxh"></td>
+                    <td class="w23">品牌</td>
+                    <td class="w34"><input type="text" id="lyqpp"></td>
+                </tr>
+                <tr>
+                    <td class="w20">光端机</td>
+                    <td class="w18"><input type="number" id="gdj"><span class="unit">个</span></td>
+                    <td class="w23">型号</td>
+                    <td class="w34"><input type="text" id="gdjxh"></td>
+                    <td class="w23">品牌</td>
+                    <td class="w34"><input type="text" id="gdjpp"></td>
+                </tr>
+                <tr>
+                    <td class="w20">链路负载均衡</td>
+                    <td class="w18"><input type="number" id="llfzjh"><span class="unit">个</span></td>
+                    <td class="w23">型号</td>
+                    <td class="w34"><input type="text" id="llfzjhxh"></td>
+                    <td class="w23">品牌</td>
+                    <td class="w34"><input type="text" id="llfzjhpp"></td>
+                </tr>
+                <tr>
+                    <td class="w20">无线中继</td>
+                    <td class="w18"><input type="number" id="wxzj"><span class="unit">个</span></td>
+                    <td class="w23">型号</td>
+                    <td class="w34"><input type="text" id="wxzjxh"></td>
+                    <td class="w23">品牌</td>
+                    <td class="w34"><input type="text" id="wxzjpp"></td>
+                </tr>
+                <tr>
+                    <td>接入政务外网IP地址段</td>
+                    <td colspan="3">
+                        <div class="bgwhite">
+                            <div id="ip"></div> <div class="ipInput-border">--</div> <div id="ip2"></div>
+                        </div>
+                    @*<input type="text" id="jrcwwwIPdzd"><span class="unit">个</span>*@
+                    </td>
+                    <td>无线接入点</td>
+                    <td colspan="3"><input type="number" id="wxjrd"><span class="unit">个</span></td>
+                </tr>
+                <tr>
+                    <td>互联网出口</td>
+                    <td colspan="3"><input type="text" id="flwck"><span class="unit">个</span></td>
+                    <td>光纤</td>
+                    <td colspan="3"><input type="number" id="gx"><span class="unit">根</span></td>
+                   
+                </tr>
+
+
+            </table>
+        </div>
+
+    </div>
+
+    <!--部门菜单设置 Begin-->
+    <div id="divDeptMenu" style="display: none; width: 250px;">
+        <input type="checkbox" id="cbDeptTreeExpand" />展开/折叠
+        <div id="Content_DeptTree" class="ztree" style="height: 320px; overflow: auto;">
+        </div>
+        <div style="text-align: center; margin-top: 10px; padding-bottom: 10px;  ">
+            <a href="javascript:void(0);" class="Treeoperation" id="btnConfirmDeptMenu">确认</a>
+            &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="Treeoperation" id="btnCancelDeptMenu">取消</a>
+            @*<input type="button" class="button" value="取消" id="btnCancelDeptMenu" />*@
+        </div>
+    </div>
+    <!--部门菜单权限设置 End-->
+
+</body>
+</html>
+
+<script src="/Scripts/require/require/2.2.0/require.js"></script>
+<script src="/Scripts/require/config/1.0.0/require.config.js?v=1.2.3"></script>
+
+<script type="text/javascript">
+    require(["MISSY", "jquery.ztree","jquery.ipInput"], function () {
+        var QueryObj;//通用查询对象
+        var layerWinIdx = -1;
+        $(function () {
+            initPage();
+            $("#ip").ipInput();
+            $("#ip2").ipInput();
+            $("#bm").focus();
+        });
+
+        //初始化
+        function initPage() {
+            QueryObj = MISSY.ParseQueryObject(window.location.href);
+            $("#BtnSubmitOperate").click(function () { ClickSubmit(); });
+            $("#BtnBackOperate").click(function () { ClickBack(); });
+            $("#btn_select,#bm").click(function () { ClickSelect(); });
+            $("#cbDeptTreeExpand").on("click", function () { MISSY.zTreeExpandNode('Content_DeptTree', this.checked); });
+            $("#btnConfirmDeptMenu").click(function () { ChangeDeptNode(); });
+            $("#btnCancelDeptMenu").click(function () { MISSY.iHideDialog(layerWinMenuIdx); });
+
+            if (QueryObj.ID) {
+                $.ajax({
+                    url: 'InitSingle',
+                    data: { ID: QueryObj.ID },
+                    type: 'POST',
+                    dataType: "json",
+                    ContentType: "application/json;charset=utf-8",
+                    success: function (response) {
+                        if (!response) { MISSY.iErrorReturnNull(); return; }
+                        switch (response.ErrorType)//标记
+                        {
+                            case 0://错误
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                            case 1://返回正确数据
+                                break;
+                            case 2://请求地址不正确
+                                MISSY.iNoFound(response.MessageContent);
+                                return;
+                            case 3://未登录
+                                MISSY.iNoLogin(response.MessageContent);
+                                return;
+                            case 4://无页面权限
+                                MISSY.iNoPageAuth(response.MessageContent);
+                                return;
+                            case 5://无操作权限
+                                MISSY.iNoOperateAuth(response.MessageContent);
+                                return;
+                            default:
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                        }
+                        var model = response.Entity;
+                        $("#scjhj").val(model.scjhj || "");
+                        $("#scjhjxh").val(model.scjhjxh || "");
+                        $("#scjhjpp").val(model.scjhjpp || "");
+                        $("#ecjhj").val(model.ecjhj || "");
+                        $("#ecjhjxh").val(model.ecjhjxh || "");
+                        $("#ecjhjpp").val(model.ecjhjpp || "");
+                        $("#lyq").val(model.lyq || "");
+                        $("#lyqxh").val(model.lyqxh || "");
+                        $("#lyqpp").val(model.lyqpp || "");
+                        $("#gdj").val(model.gdj || "");
+                        $("#gdjxh").val(model.gdjxh || "");
+                        $("#gdjpp").val(model.gdjpp || "");
+                        $("#llfzjh").val(model.llfzjh || "");
+                        $("#llfzjhxh").val(model.llfzjhxh || "");
+                        $("#llfzjhpp").val(model.llfzjhpp || "");
+                        $("#wxzj").val(model.wxzj || "");
+                        $("#wxzjxh").val(model.wxzjxh || "");
+                        $("#wxzjpp").val(model.wxzjpp || "");
+                        $("#gx").val(model.gx || "");
+                        $("#wxjrd").val(model.wxjrd || "");
+                        $("#flwck").val(model.flwck || "");
+
+                        var temp = model.jrcwwwIpdzd;
+                        //str = temp.substr(0, temp.indexOf('--'));
+                        var str_before = temp.split('--')[0];
+                        var str_after = temp.split('--')[1];
+                        if (str_before != null || str_before.length > 1) {
+                            $("#ip input[type='number']").each(function (i) {
+                                var arr = str_before.split(".");
+                                $(this).val(arr[i]);
+                            })
+                        }
+                        if (str_after != null || str_after.length > 1) {
+                            $("#ip2 input[type='number']").each(function (i) {
+                                var arr = str_after.split(".");
+                                $(this).val(arr[i]);
+                            })
+                        }
+
+                        $("#hf_bm").val(model.Dept_Id);
+                        initDeptTree();
+
+                    },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                        MISSY.iSystemAjaxError();
+                    }
+                });
+            };
+
+        };
+
+        //选择部门
+        function ClickSelect() {
+            layerWinMenuIdx = MISSY.iShowDialog("divDeptMenu", "选择部门");
+            initDeptTree();
+        };
+
+        //初始化部门树
+        function initDeptTree() {
+            var content = $("#hf_bm").val();
+            // alert(content);
+            var menuCodes = content && content.split(";") || [];
+            var zTree = $.fn.zTree.getZTreeObj("Content_DeptTree");
+            if (zTree) {
+                MISSY.zTreeCheckNodes(zTree, menuCodes);
+            } else {
+                $.ajax({
+                    url: '/GenuineSoftware/TreeDept_Ex',
+                    type: 'POST',
+                    dataType: "json",
+                    async: false,
+                    beforeSend: function () { $("#Content_DeptTree").html("<div style='width:120px;margin: 0 auto;'><img src='/Images/loading.gif' width='32px' height='32px' align='absmiddle' /> 正在加载．．．</div>"); },
+                    ContentType: "application/json;charset=utf-8",
+                    success: function (responseList) {
+                        var treeSetting = {
+                            view: {
+                                showIcon: false
+                            },
+                            check: {
+                                chkStyle: 'radio', radioType: "all", enable: true, chkboxType: { "Y": "", "N": "" }
+                            },
+                            data: {
+                                key: {
+                                    checked: "Checked",
+                                    name: "Title",
+                                    title: "Title"
+                                },
+                                simpleData: {
+                                    enable: true,
+                                    idKey: "Id",
+                                    pIdKey: "Pid",
+                                    rootPId: 0
+                                }
+                            }
+                        };
+                        $.fn.zTree.init($("#Content_DeptTree"), treeSetting, responseList);
+                        MISSY.zTreeCheckNodes($.fn.zTree.getZTreeObj("Content_DeptTree"), menuCodes);
+                        var menuName = MISSY.zTreeCheckedName("Content_DeptTree", ";");
+                        if (menuName)
+                            $("#bm").val(menuName);
+
+                    },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                        $("#Content_DeptTree").html("数据加载失败,请稍后再试！");
+                    }
+                });
+            }
+        };
+
+
+        //改变部门树节点（保存）
+        function ChangeDeptNode() {
+            var zTreeCheckedNodes = $.fn.zTree.getZTreeObj("Content_DeptTree").getCheckedNodes(true);
+            var menuIds = "", menuNames = "";
+            if (zTreeCheckedNodes && zTreeCheckedNodes.length) {
+                $(zTreeCheckedNodes).each(function () {
+                    menuIds += this.Id + "";
+                    menuNames += this.Title + "";
+                })
+            }
+            $("#hf_bm").val(menuIds);
+            $("#bm").val(menuNames);
+            MISSY.iHideDialog(layerWinMenuIdx);
+
+        };
+
+        //返回
+        function ClickBack() {
+            var queryStr = MISSY.ParseQueryString(QueryObj);
+            location.href = "Index?_r=" + Math.random() + "&" + queryStr;
+        };
+
+        //提交
+        function ClickSubmit() {
+
+            var bm = MISSY.Trim($("#hf_bm").val());
+            if (MISSY.IsEmpty(bm)) {
+                MISSY.iErrorMessage("请选择部门.");
+                $("#bm").focus();
+                return;
+            } 
+
+            var ipdz = "";
+            var dempip = "";
+            $("#ip input[type='number']").each(function () {
+                dempip += $(this).val() + ".";
+            })
+            dempip = dempip.substring(0, dempip.length - 1);
+
+            if (!MISSY.IsIPAddress(dempip)) {
+                MISSY.iErrorMessage("起始IP地址不正确.");
+                return;
+            }
+            var dempip1 = "";
+            $("#ip2 input[type='number']").each(function () {
+                dempip1 += $(this).val() + ".";
+            })
+            dempip1 = dempip1.substring(0, dempip1.length - 1);
+
+            if (!MISSY.IsIPAddress(dempip1)) {
+                MISSY.iErrorMessage("结束IP地址不正确.");
+                return;
+            }
+
+            ipdz = dempip + "--" + dempip1;
+
+            var wxjrd = MISSY.Trim($("#wxjrd").val());
+            if (MISSY.IsEmpty(wxjrd)) {
+                MISSY.iErrorMessage("无线接入点不能为空.");
+                $("#wxjrd").focus();
+                return;
+            }
+            $.ajax({
+                url: 'AddOrUpdate',
+                data: {
+                    ID: QueryObj.ID,
+                    Dept_Id: $("#hf_bm").val(),
+                    jrcwwwIPdzd: ipdz,
+                    scjhj: $("#scjhj").val(),
+                    scjhjxh: $("#scjhjxh").val(),
+                    scjhjpp: $("#scjhjpp").val(),
+                    ecjhj: $("#ecjhj").val(),
+                    ecjhjxh: $("#ecjhjxh").val(),
+                    ecjhjpp: $("#ecjhjpp").val(),
+                    lyq: $("#lyq").val(),
+                    lyqxh: $("#lyqxh").val(),
+                    lyqpp: $("#lyqpp").val(),
+                    gdj: $("#gdj").val(),
+                    gdjxh: $("#gdjxh").val(),
+                    gdjpp: $("#gdjpp").val(),
+                    llfzjh: $("#llfzjh").val(),
+                    llfzjhxh: $("#llfzjhxh").val(),
+                    llfzjhpp: $("#llfzjhpp").val(),
+                    wxzj: $("#wxzj").val(),
+                    wxzjxh: $("#wxzjxh").val(),
+                    wxzjpp: $("#wxzjpp").val(),
+                    gx: $("#gx").val(),
+                    wxjrd: $("#wxjrd").val(),
+                    flwck: $("#flwck").val()
+                 
+
+                },
+                type: 'POST',
+                dataType: "json",
+                ContentType: "application/json;charset=utf-8",
+                beforeSend: function () { layerLoadIndex = MISSY.iShowLoading("正在执行中，请稍候..."); },
+                success: function (response) {
+                    if (!response) { MISSY.iErrorReturnNull(); return; }
+                    switch (response.ErrorType)//标记
+                    {
+                        case 0://错误
+                            MISSY.iErrorMessage(response.MessageContent);
+                            return;
+                        case 1://返回正确数据
+                            MISSY.iSuccessMessage(response.MessageContent, function () {
+                                // location.href = "List?_r=" + Math.random();
+                                location.href = "Index?_r=" + Math.random();
+                            });
+                            break;
+                        case 2://请求地址不正确
+                            MISSY.iNoFound(response.MessageContent);
+                            return;
+                        case 3://未登录
+                            MISSY.iNoLogin(response.MessageContent);
+                            return;
+                        case 4://无页面权限
+                            MISSY.iNoPageAuth(response.MessageContent);
+                            return;
+                        case 5://无操作权限
+                            MISSY.iNoOperateAuth(response.MessageContent);
+                            return;
+                        default:
+                            MISSY.iErrorMessage(response.MessageContent);
+                            return;
+                    }
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
+                    MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                    MISSY.iSystemAjaxError();
+                },
+                complete: function (xmlHttpRequest, textStatus) {
+                    MISSY.iHideLoading(layerLoadIndex);
+                }
+            });
+        }
+    });
+</script>

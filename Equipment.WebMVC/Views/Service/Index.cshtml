@@ -1,0 +1,406 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/main.css">
+    <link rel="stylesheet" href="~/Content/tab.css" />
+    <title>ServiceIndex</title>
+</head>
+<body>
+    <div class="content">
+        <h3 class="content-title">
+            服务器情况管理
+
+        </h3>
+        <div class="operation-box">
+            @*<input class="search-input" type="text" placeholder="请输入所要查找部门..." id="deptName">
+                <button class="search-btn" id="BtnSearch"></button>*@
+            <div class="btn-box">
+                <input type="hidden" id="tabcode" value="0" /><!--0:物理机，1:虚拟机-->>
+                <a href="javascript:void(0);" id="BtnAddOperate" class="operation add">添加</a>
+                <a href="javascript:void(0);" id="BtnImpOperate" class="operation modify"><span id="picker">从Excel导入</span></a>
+                <a href="javascript:void(0);" id="BtnDeleteOperate" class="operation delete">删除</a>
+                <a href="javascript:void(0);" id="BtnUpdataOperate" class="operation modify">修改</a>
+            </div>
+        </div>
+
+        <div class="tab-vertical">
+            <div class="tab-header">
+                <div class="tab-item active"><span>物理服务器</span></div>
+                <div class="tab-line"></div>
+                <div class="tab-item"><span>虚拟服务器</span></div>
+            </div>
+            <div class="tab-body">
+                  <div class="week-contents" id="myWeek">
+                            <div class="week-bar">
+                                <div class="week-row conten" style="height:355px;">
+                                    <div id="divContent_List1" style="width:100%;height:auto; float:left; display:inline">
+                                        <table class="gv_list1" cellpadding="0" cellspacing="0"></table>
+                                    </div>
+                                </div>
+                                <div class="week-row status"  style="height:365px;">
+                                    <br />
+                                    <div id="divContent_List2" style="width:100%;height:auto; float:left; display:inline">
+                                        <table class="gv_list2" cellpadding="0" cellspacing="0"></table>
+                                    </div>
+                                </div>
+                            </div>
+                   </div>
+             </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+
+<script src="~/Scripts/jquery/jquery/1.11.3/jquery.js"></script>
+<script src="/Scripts/layer/layer/3.0.1/layer.js"></script>
+<link href="/Scripts/layer/layer/3.0.1/skin/default/layer.css?v=1.0.0" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/missy/2.0.0/MISSY.js"></script>
+<script src="~/Scripts/MeidaGrid/MeidaGrid.js"></script>
+<link href="/Scripts/MeidaGrid/MeidaGrid.css?v=1.0.0" rel="stylesheet" type="text/css" />
+<script src="/Scripts/webuploader/0.1.5/webuploader.min.js"></script>
+<link href="/Scripts/webuploader/0.1.5/webuploader.css?v=1.0.0" rel="stylesheet" type="text/css" />
+<style>
+    .webuploader-pick {
+        padding: 0 2px;
+        height: 24px;
+        width: 100%;
+    }
+</style>
+<script type="text/javascript">
+
+    var QueryObj;//通用查询对象
+    var layerWinIdx = -1;
+    $(function () {
+        initPage();
+    });
+
+    function initPage() {
+        QueryObj = MISSY.ParseQueryObject(window.location.href);
+        if (undefined !== QueryObj.L_SearchDeptKey) {
+            $("#deptName").val(QueryObj.L_SearchDeptKey);
+        }
+
+        initGrid();
+
+        $("#BtnDeleteOperate").click(function () { ClickDelete(); });
+        $("#BtnUpdataOperate").click(function () { ClickUpdata(); });
+        $("#BtnAddOperate").click(function () { ClickAdd(); });
+
+        initFileUploader();
+        tab();
+    };
+
+    //添加
+    function ClickAdd() {
+
+        var code = $("#tabcode").val();
+        var paramIds;
+        if (code == 0) {
+            window.location.href = "Edit1?_r=" + Math.random();
+        } else {
+            window.location.href = "Edit2?_r=" + Math.random();
+        }
+    };
+
+    //初始化
+    function initGrid() {
+        $(".gv_list1").MeidaGrid({
+            url: "LoadPageList1",
+            pagination: true,
+            pageNumber: 1,
+            pageSize: 10,
+            idField: "ID",
+            singleSelect: false,
+            queryParams: {
+                SearchDept: QueryObj.L_SearchDeptKey
+            },
+            columns: [
+                { checkbox: true, width: 25 },
+                { title: "序号", rowNum: true, width: 25 },
+                { title: "服务器编号", field: "fwqbh", width: 60 },
+                { title: "型号", field: "xh", width: 60 },
+                { title: "购买日期", field: "gmrq", width: 60 },
+                { title: "过保日期", field: "gbrq", width: 60 },
+                { title: "产品b", field: "cpbb", width: 60 },
+                { title: "序列号", field: "xlh", width: 60 },
+                { title: "物理位置", field: "wlwz", width: 60 },
+                { title: "机柜位置", field: "jgwz", width: 60 },
+                { title: "重要程度", field: "zycd", width: 60 }
+            ],
+            loadFilter: function (response) {
+                var gridData = { total: 0, rows: [] };
+                if (!response) { MISSY.iErrorReturnNull(); return gridData; }
+                switch (response.ErrorType)//标记
+                {
+                    case 0://错误
+                        MISSY.iErrorMessage(response.MessageContent);
+                        return gridData;
+                    case 1://返回正确数据
+                        break;
+                    case 2://请求地址不正确
+                        MISSY.iNoFound(response.MessageContent);
+                        return gridData;
+                    case 3://未登录
+                        MISSY.iNoLogin(response.MessageContent);
+                        return gridData;
+                    case 4://无页面权限
+                        MISSY.iNoPageAuth(response.MessageContent);
+                        return gridData;
+                    case 5://无操作权限
+                        MISSY.iNoOperateAuth(response.MessageContent);
+                        return gridData;
+                    default:
+                        MISSY.iErrorMessage(response.MessageContent);
+                        return gridData;
+                }
+                gridData.total = response.TotalRecord;
+                gridData.rows = response.Data;
+                return gridData;
+            },
+            onRenderComplete: function () {
+                var pager = $(".gv_list1").MeidaGrid("pager");
+                if (pager) {
+                    QueryObj.L_CurrentPage = pager.pageNumber;
+                    QueryObj.L_PageSize = pager.pageSize;
+                }
+            }
+        });
+        $(".gv_list2").MeidaGrid({
+            url: "LoadPageList2",
+            pagination: true,
+            pageNumber: 1,
+            pageSize: 10,
+            idField: "ID",
+            singleSelect: false,
+            queryParams: {
+                SearchDept: QueryObj.L_SearchDeptKey
+            },
+            columns: [
+                { checkbox: true, width: 25 },
+                { title: "序号", rowNum: true, width: 25 },
+                { title: "部门", field: "Dept_Name", width: 60 },
+                { title: "虚拟机名", field: "xnjm", width: 60 },
+                { title: "系统名称", field: "xtmc", width: 60 },
+                { title: "提交时间", field: "tjsj", width: 60 },
+                { title: "CPU", field: "CPU", width: 60 },
+                { title: "内存", field: "nc", width: 60 },
+                { title: "硬盘空间", field: "ypkj", width: 60 },
+                { title: "操作系统", field: "czxt", width: 60 },
+                { title: "IP地址", field: "IPdz", width: 60 }
+            ],
+            loadFilter: function (response) {
+                var gridData = { total: 0, rows: [] };
+                if (!response) { MISSY.iErrorReturnNull(); return gridData; }
+                switch (response.ErrorType)//标记
+                {
+                    case 0://错误
+                        MISSY.iErrorMessage(response.MessageContent);
+                        return gridData;
+                    case 1://返回正确数据
+                        break;
+                    case 2://请求地址不正确
+                        MISSY.iNoFound(response.MessageContent);
+                        return gridData;
+                    case 3://未登录
+                        MISSY.iNoLogin(response.MessageContent);
+                        return gridData;
+                    case 4://无页面权限
+                        MISSY.iNoPageAuth(response.MessageContent);
+                        return gridData;
+                    case 5://无操作权限
+                        MISSY.iNoOperateAuth(response.MessageContent);
+                        return gridData;
+                    default:
+                        MISSY.iErrorMessage(response.MessageContent);
+                        return gridData;
+                }
+                gridData.total = response.TotalRecord;
+                gridData.rows = response.Data;
+                return gridData;
+            },
+            onRenderComplete: function () {
+                var pager = $(".gv_list2").MeidaGrid("pager");
+                if (pager) {
+                    QueryObj.L_CurrentPage = pager.pageNumber;
+                    QueryObj.L_PageSize = pager.pageSize;
+                }
+            }
+        });
+    };
+
+    //删除
+    function ClickDelete() {
+        var code = $("#tabcode").val();
+        var paramIds;
+        if (code == 0) {
+             paramIds = $(".gv_list1").MeidaGrid("getSelectionIDFields");     
+        } else {
+             paramIds = $(".gv_list2").MeidaGrid("getSelectionIDFields");     
+        }
+        if (paramIds !== "") {
+            MISSY.iConfirmMessage("请谨慎操作，删除后数据不可恢复，您确定要删除吗？", function () {
+                var layerLoadIndex;
+                $.ajax({
+                    url: "ListPhyDel",
+                    data: { ids: paramIds, Idcode: code },
+                    type: "post",
+                    dataType: "json",
+                    beforeSend: function () { layerLoadIndex = MISSY.iShowLoading("正在执行中，请稍候"); },
+                    ContentType: "application/json;charset=utf-8",
+                    success: function (response) {
+                        if (!response) { MISSY.iErrorReturnNull(); return; }
+                        switch (response.ErrorType) //标记
+                        {
+                            case 0: //错误
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                            case 1: //返回正确数据
+                                MISSY.iSuccessMessage(response.MessageContent, function () {
+                                    if (code == 0) {
+                                        $(".gv_list1").MeidaGrid("load", {
+                                            Flag: 1,
+                                            Title: QueryObj.L_SearchKey
+                                        }).MeidaGrid("unselectAll");
+                                    } else {
+                                        $(".gv_list2").MeidaGrid("load", {
+                                            Flag: 1,
+                                            Title: QueryObj.L_SearchKey
+                                        }).MeidaGrid("unselectAll");
+                                    }
+                                });
+                                return;
+                            case 2: //请求地址不正确
+                                MISSY.iNoFound(response.MessageContent);
+                                return;
+                            case 3: //未登录
+                                MISSY.iNoLogin(response.MessageContent);
+                                return;
+                            case 4: //无页面权限
+                                MISSY.iNoPageAuth(response.MessageContent);
+                                return;
+                            case 5: //无操作权限
+                                MISSY.iNoOperateAuth(response.MessageContent);
+                                return;
+                            default:
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                        }
+                    },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                        MISSY.iSystemAjaxError();
+                    },
+                    complete: function (xmlHttpRequest, textStatus) {
+                        MISSY.iHideLoading(layerLoadIndex);
+                    }
+                });
+            });
+        } else {
+            MISSY.iErrorMessage("请选择一项数据.");
+        }
+
+    };
+
+    //修改
+    function ClickUpdata() {
+        //var rows = $(".gv_list").MeidaGrid("getSelections");getSelectionIDFields
+        var code = $("#tabcode").val();
+        QueryObj.Code = code;
+        var paramIds;
+        if (code == 0) {
+            paramIds = $(".gv_list1").MeidaGrid("getSelections");
+            if (paramIds && paramIds.length === 1) {
+                var row = paramIds[0];
+                QueryObj.ID = row.ID;
+                var queryStr = MISSY.ParseQueryString(QueryObj);
+                window.location.href = "Edit1?_r=" + Math.random() + "&" + queryStr;
+            } else
+                MISSY.iErrorMessage("请选择一项数据.");
+        } else {
+            paramIds = $(".gv_list2").MeidaGrid("getSelections");
+            if (paramIds && paramIds.length === 1) {
+                var row = paramIds[0];
+                QueryObj.ID = row.ID;
+                var queryStr = MISSY.ParseQueryString(QueryObj);
+                window.location.href = "Edit2?_r=" + Math.random() + "&" + queryStr;
+            } else
+                MISSY.iErrorMessage("请选择一项数据.");
+        }
+    };
+
+    //tab切换
+    function tab() {
+        $(".tab-vertical .tab-item").click(function () {
+
+            $(this).parents(".tab-vertical").find(".tab-item").removeClass("active");
+            $(this).addClass("active");
+            var index = $(this).index(".tab-item");
+            if ($.trim(index) == '') {
+                index = 0;
+            }
+            $(":checkbox").attr("checked", false);
+            $("tr").removeClass("selected");
+            $("#tabcode").val(index);
+            var $top = index * 368; //css : 355
+            $(this).parents(".tab-vertical").find(".week-bar").animate({ top: "-" + $top + "px" }, 500);
+        });
+    }
+    //上传导入
+    function initFileUploader() {
+        var uploader = WebUploader.create({
+            // 选完文件后，是否自动上传。
+            auto: true,
+            // swf文件路径
+            swf: '/Scripts/webuploader/0.1.5/Uploader.swf',
+            // 文件接收服务端。
+            server: '/Import/ImportServiceExcelFile',
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#picker', //picker
+            method: 'POST',
+            fileNumLimit: 1
+        });
+        // 当有文件添加进来的时候
+        uploader.on('fileQueued', function (file) {
+            loadLayerIdx = MISSY.iShowLoading("操作执行中...");
+        });
+        // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+        uploader.on('uploadSuccess', function (file, response) {
+            if (response.error) {
+                MISSY.iErrorMessage(response.error.message);
+            } else {
+                MISSY.iSuccessMessage("导入成功.");
+
+                setInterval(initGrid(), 3000);
+                 
+            }
+        });
+        // 文件上传失败，显示上传出错。
+        uploader.on('uploadError', function (file, reason) {
+            MISSY.iErrorMessage(reason);
+        });
+        // 完成上传完了，成功或者失败，先删除进度条。
+        uploader.on('uploadComplete', function (file) {
+            MISSY.iHideLoading(loadLayerIdx);
+            // uploader.reset();
+        });
+        //上传文件不合法时，提示错误消息
+        uploader.on('error', function (type) {
+            if (type === "Q_EXCEED_SIZE_LIMIT") {
+                MISSY.iErrorMessage("文件大小超出限制.");
+            } else if (type === "Q_TYPE_DENIED") {
+                MISSY.iErrorMessage("请上传正确的Excel文件.");
+            }
+        });
+    };
+</script>

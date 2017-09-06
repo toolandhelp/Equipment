@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f85d6f56859b4b7f89984fc4faa834e0" Name="Diagram1" ZoomLevel="89">
+        <EntityTypeShape EntityType="equipmentModel.td_Network" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_User" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="equipmentModel.ts_Dept" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_Security" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="equipmentModel.V_Network_Dept" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="equipmentModel.V_GenuineSoftware_Dept" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="equipmentModel.V_Security_Dept" Width="1.5" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="equipmentModel.V_ComputerRoom_Dept" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_ComputerRoom" Width="1.5" PointX="0.625" PointY="0.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_GenuineSoftware" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_ConstructionProject" Width="1.5" PointX="0.5" PointY="13.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_ResourceCatalog" Width="1.5" PointX="2.75" PointY="10" />
+        <EntityTypeShape EntityType="equipmentModel.td_Terminal" Width="1.5" PointX="0.625" PointY="11" />
+        <EntityTypeShape EntityType="equipmentModel.V_ConstructionProject_Dept" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="equipmentModel.V_ResourceCatalog_Dept" Width="1.5" PointX="11.375" PointY="11.75" />
+        <EntityTypeShape EntityType="equipmentModel.V_Terminal_Dept" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_Network_1" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_GenuineSoftware_1" Width="1.5" PointX="13.375" PointY="6.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_Security_1" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_ComputerRoom_sbsl_1" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_Security_xxsl_1" Width="1.5" PointX="3.375" PointY="15.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_ComputerRoom_1" Width="1.5" PointX="5.375" PointY="16.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_Menu" Width="1.5" PointX="7.375" PointY="16.75" />
+        <EntityTypeShape EntityType="equipmentModel.td_Service_1" Width="1.5" PointX="9.375" PointY="16" />
+        <EntityTypeShape EntityType="equipmentModel.td_Service_2" Width="1.5" PointX="11.5" PointY="16" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,510 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/main.css">
+    <title>seivece2Edit</title>
+    <style type="text/css">
+        /*弹出框btn*/
+        .Treeoperation {
+            cursor: pointer;
+            border: 0;
+            width: 57px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            background: #00b0c7;
+            color: #FFF;
+            font-size: 12px;
+            letter-spacing: 2px;
+            padding: 0 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="content">
+        <h3 class="content-title">
+            虚拟服务器管理
+        </h3>
+        <div class="operation-box">
+            <div class="btn-box">
+                <a href="javascript:void(0);" class="operation confirm" id="BtnSubmitOperate">确认</a>
+                <a href="javascript:void(0);" class="operation cancel" id="BtnBackOperate">返回</a>
+            </div>
+        </div>
+        <div class="table-input">
+            <table>
+                <tr>
+                    <td class="blank" colspan="99"></td>
+                </tr>
+                <tr>
+                    <td>部门</td>
+                    <td colspan="3">
+                        <input type="text" id="bm" >
+                        <input type="hidden" id="hf_bm" />
+                        <span class="unit">
+                            <a id="btn_select" href="javascript:void(0);">
+                                选择
+                            </a>
+                        </span>
+                    </td>
+                    <td>操作系统</td>
+                    <td colspan="3">
+                        <input type="text" id="czxt">
+                    </td>
+                </tr>
+                @*<tr>
+                    <td>部门</td>
+                    <td colspan="3">
+                        <input type="text" id="bm" readonly="readonly">
+                        <input type="hidden" id="hf_bm" />
+                        <span class="unit">
+                            <a id="btn_select" href="javascript:void(0);">
+                                选择
+                            </a>
+                        </span>
+                    </td>
+
+                    <td>身份认证网关</td>
+                    <td colspan="3">
+                        <div class="bgwhite">
+                            <div id="ip"></div>
+                        </div>
+                        @*<input type="text" id="sfrzwg">*@
+                @*</td>
+                    </tr>*@
+                <tr>
+                    <td class="w20">IP地址</td>
+                    <td class="w18"><input type="text" id="ipdz"></td>
+                    <td class="w23">增加时间</td>
+                    <td class="w34"><input type="date" id="zjsj"></td>
+                    <td class="w23">虚拟机名</td>
+                    <td class="w34"><input type="text" id="xnjm" /></td>
+                </tr>
+                <tr>
+                    <td>系统名称</td>
+                    <td colspan="0">
+                        <input type="text" id="xtmc">
+                    </td>
+                    <td>备注</td>
+                    <td colspan="6">
+                        <input type="text" id="bz">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w20">CPU</td>
+                    <td class="w18"><input type="text" id="CPU"></td>
+                    <td class="w23">内存</td>
+                    <td class="w34"><input type="text" id="nc"></td>
+                    <td class="w23">硬盘空间</td>
+                    <td class="w34"><input type="text" id="ypkj"></td>
+                </tr>
+                <tr>
+                    <td>管理员账号</td>
+                    <td colspan="3">
+                        <input type="text" id="glyzh">
+                    </td>
+                    <td>管理员密码</td>
+                    <td colspan="3">
+                        <input type="text" id="glymm">
+                    </td>
+                </tr>
+                <tr>
+                    <td>公司维护人员账号</td>
+                    <td colspan="3">
+                        <input type="text" id="whryzh">
+                    </td>
+                    <td>公司维护人员密码</td>
+                    <td colspan="3">
+                        <input type="text" id="whrymm">
+                    </td>
+                </tr>
+                <tr>
+                    <td>审计账号</td>
+                    <td colspan="3">
+                        <input type="text" id="sjzh">
+                    </td>
+                    <td>审计密码</td>
+                    <td colspan="3">
+                        <input type="text" id="sjmm">
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <!--部门菜单设置 Begin-->
+    <div id="divDeptMenu" style="display: none; width: 250px;">
+        <input type="checkbox" id="cbDeptTreeExpand" />展开/折叠
+        <div id="Content_DeptTree" class="ztree" style="height: 320px; overflow: auto;">
+        </div>
+        <div style="text-align: center; margin-top: 10px; padding-bottom: 10px;  ">
+            <a href="javascript:void(0);" class="Treeoperation" id="btnConfirmDeptMenu">确认</a>
+            &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="Treeoperation" id="btnCancelDeptMenu">取消</a>
+            @*<input type="button" class="button" value="取消" id="btnCancelDeptMenu" />*@
+        </div>
+    </div>
+    <!--部门菜单权限设置 End-->
+</body>
+</html>
+<script src="/Scripts/require/require/2.2.0/require.js"></script>
+<script src="/Scripts/require/config/1.0.0/require.config.js?v=1.2.3"></script>
+
+<script type="text/javascript">
+    require(["MISSY", "jquery.ztree", "jquery.ipInput"], function () {
+        var QueryObj;//通用查询对象
+        var layerWinIdx = -1;
+        $(function () {
+            $("#ip").ipInput();
+            $("#bswz").focus();
+            initPage();
+        });
+
+        //初始化
+        function initPage() {
+            QueryObj = MISSY.ParseQueryObject(window.location.href);
+            $("#BtnSubmitOperate").click(function () { ClickSubmit(); });
+            $("#BtnBackOperate").click(function () { ClickBack(); });
+
+            //  $("#btn_select,#bm").click(function () { ClickSelect(); });
+            $("#cbDeptTreeExpand").on("click", function () { MISSY.zTreeExpandNode('Content_DeptTree', this.checked); });
+            $("#btnConfirmDeptMenu").click(function () { ChangeDeptNode(); });
+            $("#btnCancelDeptMenu").click(function () { MISSY.iHideDialog(layerWinMenuIdx); });
+
+
+            if (QueryObj.ID) {
+                $.ajax({
+                    url: 'InitSingle',
+                    data: { ID: QueryObj.ID, Code: QueryObj.Code },
+                    type: 'POST',
+                    dataType: "json",
+                    ContentType: "application/json;charset=utf-8",
+                    success: function (response) {
+                        if (!response) { MISSY.iErrorReturnNull(); return; }
+                        switch (response.ErrorType)//标记
+                        {
+                            case 0://错误
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                            case 1://返回正确数据
+                                break;
+                            case 2://请求地址不正确
+                                MISSY.iNoFound(response.MessageContent);
+                                return;
+                            case 3://未登录
+                                MISSY.iNoLogin(response.MessageContent);
+                                return;
+                            case 4://无页面权限
+                                MISSY.iNoPageAuth(response.MessageContent);
+                                return;
+                            case 5://无操作权限
+                                MISSY.iNoOperateAuth(response.MessageContent);
+                                return;
+                            default:
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                        }
+                        var model = response.Entity;
+                        $("#bm").val(model.Dept_Name || "");
+                        $("#hf_bm").val(model.Dept_Id);
+                        //initDeptTree();
+                        $("#ipdz").val(model.IPdz || "");
+                        $("#zjsj").val(MISSY.FormatJSONDate(model.tjsj, 1) || "");
+                        $("#xnjm").val(model.xnjm || "");
+                        $("#xtmc").val(model.xtmc || "");
+                        $("#bz").val(model.bz || "");
+                        $("#CPU").val(model.CPU || "");
+                        $("#nc").val(model.nc || "");
+                        $("#ypkj").val(model.ypkj || "");
+                        $("#czxt").val(model.czxt || "");
+                        $("#glyzh").val(model.glyhm || "");
+                        $("#glymm").val(model.glmm || "");
+                        $("#whryzh").val(model.whyhm1 || "");
+                        $("#whrymm").val(model.whmm1 || "");
+                        $("#sjzh").val(model.sjyhm || "");
+                        $("#sjmm").val(model.sjmm || "");
+
+                        var temp = model.sfrzwg;
+                        //if (temp != null || temp.length > 1) {
+                        //    $("#ip input[type='number']").each(function (i) {
+                        //        var arr = temp.split(".");
+                        //        $(this).val(arr[i]);
+                        //    })
+                        //}
+
+                    },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                        MISSY.iSystemAjaxError();
+                    }
+                });
+            };
+
+        };
+
+
+
+
+
+        //改变部门树节点（保存）
+        function ChangeDeptNode() {
+            var zTreeCheckedNodes = $.fn.zTree.getZTreeObj("Content_DeptTree").getCheckedNodes(true);
+            var menuIds = "", menuNames = "";
+            if (zTreeCheckedNodes && zTreeCheckedNodes.length) {
+                $(zTreeCheckedNodes).each(function () {
+                    menuIds += this.Id + "";
+                    menuNames += this.Title + "";
+                })
+            }
+            $("#hf_bm").val(menuIds);
+            $("#bm").val(menuNames);
+            MISSY.iHideDialog(layerWinMenuIdx);
+
+        };
+
+        //选择部门
+        function ClickSelect() {
+            layerWinMenuIdx = MISSY.iShowDialog("divDeptMenu", "选择部门");
+            initDeptTree();
+        };
+
+        //初始化部门树
+        //function initDeptTree() {
+        //    var content = $("#hf_bm").val();
+        //    // alert(content);
+        //    var menuCodes = content && content.split(";") || [];
+        //    var zTree = $.fn.zTree.getZTreeObj("Content_DeptTree");
+        //    if (zTree) {
+        //        MISSY.zTreeCheckNodes(zTree, menuCodes);
+        //    } else {
+        //        $.ajax({
+        //            url: '/GenuineSoftware/TreeDept_Ex',
+        //            type: 'POST',
+        //            dataType: "json",
+        //            async: false,
+        //            beforeSend: function () { $("#Content_DeptTree").html("<div style='width:120px;margin: 0 auto;'><img src='/Images/loading.gif' width='32px' height='32px' align='absmiddle' /> 正在加载．．．</div>"); },
+        //            ContentType: "application/json;charset=utf-8",
+        //            success: function (responseList) {
+        //                var treeSetting = {
+        //                    view: {
+        //                        showIcon: false
+        //                    },
+        //                    check: {
+        //                        chkStyle: 'radio', radioType: "all", enable: true, chkboxType: { "Y": "", "N": "" }
+        //                    },
+        //                    data: {
+        //                        key: {
+        //                            checked: "Checked",
+        //                            name: "Title",
+        //                            title: "Title"
+        //                        },
+        //                        simpleData: {
+        //                            enable: true,
+        //                            idKey: "Id",
+        //                            pIdKey: "Pid",
+        //                            rootPId: 0
+        //                        }
+        //                    }
+        //                };
+        //                $.fn.zTree.init($("#Content_DeptTree"), treeSetting, responseList);
+        //                MISSY.zTreeCheckNodes($.fn.zTree.getZTreeObj("Content_DeptTree"), menuCodes);
+        //                var menuName = MISSY.zTreeCheckedName("Content_DeptTree", ";");
+        //                if (menuName)
+        //                    $("#bm").val(menuName);
+
+        //            },
+        //            error: function (xmlHttpRequest, textStatus, errorThrown) {
+        //                MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+        //                $("#Content_DeptTree").html("数据加载失败,请稍后再试！");
+        //            }
+        //        });
+        //    }
+        //};
+
+        //返回
+        function ClickBack() {
+            var queryStr = MISSY.ParseQueryString(QueryObj);
+            location.href = "Index?_r=" + Math.random() + "&" + queryStr;
+        };
+
+        //提交
+        function ClickSubmit() {
+
+            var bm = MISSY.Trim($("#bm").val());
+            if (MISSY.IsEmpty(bm)) {
+                MISSY.iErrorMessage("部门不能为空.");
+                $("#bm").focus();
+                return;
+            }
+            var ipdz = MISSY.Trim($("#ipdz").val());
+            if (MISSY.IsEmpty(ipdz)) {
+                MISSY.iErrorMessage("IP地址不能为空.");
+                $("#ipdz").focus();
+                return;
+            }
+            var zjsj = MISSY.Trim($("#zjsj").val());
+            if (MISSY.IsEmpty(zjsj)) {
+                MISSY.iErrorMessage("增加时间不能为空.");
+                $("#zjsj").focus();
+                return;
+            }
+            var xnjm = MISSY.Trim($("#xnjm").val());
+            if (MISSY.IsEmpty(xnjm)) {
+                MISSY.iErrorMessage("虚拟机名不能为空.");
+                $("#xnjm").focus();
+                return;
+            }
+            var xtmc = MISSY.Trim($("#xtmc").val());
+            if (MISSY.IsEmpty(xtmc)) {
+                MISSY.iErrorMessage("系统名称不能为空.");
+                $("#xtmc").focus();
+                return;
+            }
+            var bz = MISSY.Trim($("#bz").val());
+            //if (MISSY.IsEmpty(bz)) {
+            //    MISSY.iErrorMessage("虚拟机名不能为空.");
+            //    $("#bz").focus();
+            //    return;
+            //}
+            var CPU = MISSY.Trim($("#CPU").val());
+            if (MISSY.IsEmpty(CPU)) {
+                MISSY.iErrorMessage("CPU不能为空.");
+                $("#CPU").focus();
+                return;
+            }
+            var nc = MISSY.Trim($("#nc").val());
+            if (MISSY.IsEmpty(nc)) {
+                MISSY.iErrorMessage("内存不能为空.");
+                $("#nc").focus();
+                return;
+            }
+            var ypkj = MISSY.Trim($("#ypkj").val());
+            if (MISSY.IsEmpty(ypkj)) {
+                MISSY.iErrorMessage("硬盘空间不能为空.");
+                $("#ypkj").focus();
+                return;
+            }
+            var czxt = MISSY.Trim($("#czxt").val());
+            if (MISSY.IsEmpty(czxt)) {
+                MISSY.iErrorMessage("操作系统不能为空.");
+                $("#czxt").focus();
+                return;
+            }
+            var glyzh = MISSY.Trim($("#glyzh").val());
+            if (MISSY.IsEmpty(glyzh)) {
+                MISSY.iErrorMessage("管理员账号不能为空.");
+                $("#glyzh").focus();
+                return;
+            }
+            var glymm = MISSY.Trim($("#glymm").val());
+            if (MISSY.IsEmpty(glymm)) {
+                MISSY.iErrorMessage("管理员密码不能为空.");
+                $("#glymm").focus();
+                return;
+            }
+            var whryzh = MISSY.Trim($("#whryzh").val());
+            if (MISSY.IsEmpty(whryzh)) {
+                MISSY.iErrorMessage("公司维护人员账号不能为空.");
+                $("#whryzh").focus();
+                return;
+            }
+            var whrymm = MISSY.Trim($("#whrymm").val());
+            if (MISSY.IsEmpty(whrymm)) {
+                MISSY.iErrorMessage("公司维护人员密码不能为空.");
+                $("#whrymm").focus();
+                return;
+            }
+            var sjzh = MISSY.Trim($("#sjzh").val());
+            if (MISSY.IsEmpty(sjzh)) {
+                MISSY.iErrorMessage("审计账号不能为空.");
+                $("#sjzh").focus();
+                return;
+            }
+            var sjmm = MISSY.Trim($("#sjmm").val());
+            if (MISSY.IsEmpty(sjmm)) {
+                MISSY.iErrorMessage("审计密码不能为空.");
+                $("#sjmm").focus();
+                return;
+            }
+
+            $.ajax({
+                url: 'AddOrUpdate2',
+                data: {
+                    ID: QueryObj.ID,
+                    bm: bm,
+                    ipdz: ipdz,
+                    zjsj: zjsj,
+                    xnjm: xnjm,
+                    xtmc: xtmc,
+                    bz: bz,
+                    CPU: CPU,
+                    nc: nc,
+                    ypkj: ypkj,
+                    czxt: czxt,
+                    glyzh: glyzh,
+                    glymm: glymm,
+                    whryzh: whryzh,
+                    whrymm: whrymm,
+                    sjzh: sjzh,
+                    sjmm: sjmm
+                },
+                type: 'POST',
+                dataType: "json",
+                ContentType: "application/json;charset=utf-8",
+                beforeSend: function () { layerLoadIndex = MISSY.iShowLoading("正在执行中，请稍候..."); },
+                success: function (response) {
+                    if (!response) { MISSY.iErrorReturnNull(); return; }
+                    switch (response.ErrorType)//标记
+                    {
+                        case 0://错误
+                            MISSY.iErrorMessage(response.MessageContent);
+                            return;
+                        case 1://返回正确数据
+                            MISSY.iSuccessMessage(response.MessageContent, function () {
+                                // location.href = "List?_r=" + Math.random();
+                                location.href = "Index?_r=" + Math.random();
+                            });
+                            break;
+                        case 2://请求地址不正确
+                            MISSY.iNoFound(response.MessageContent);
+                            return;
+                        case 3://未登录
+                            MISSY.iNoLogin(response.MessageContent);
+                            return;
+                        case 4://无页面权限
+                            MISSY.iNoPageAuth(response.MessageContent);
+                            return;
+                        case 5://无操作权限
+                            MISSY.iNoOperateAuth(response.MessageContent);
+                            return;
+                        default:
+                            MISSY.iErrorMessage(response.MessageContent);
+                            return;
+                    }
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
+                    MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                    MISSY.iSystemAjaxError();
+                },
+                complete: function (xmlHttpRequest, textStatus) {
+                    MISSY.iHideLoading(layerLoadIndex);
+                }
+            });
+        }
+    });
+</script>

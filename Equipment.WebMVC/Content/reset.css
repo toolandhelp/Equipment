@@ -1,0 +1,54 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, label, button, input, select, option, textarea, optgroup, table, thead, tbody, tfoot, tr, th, td, div, span, img, a, em, i, iframe, :before, :after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body, button, input, select, option, textarea, optgroup, img {
+  font: 16px/1 "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  outline: none;
+  border: none; }
+
+textarea {
+  resize: none;
+  overflow: auto; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  color: #000; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal; }
+
+article, aside, footer, header, nav, section, figcaption, figure, main, details, menu {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+a, a:hover, a:active, a:visited, a:link, a:focus {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  /*background: none;*/
+  text-decoration: none; }
+
+input[type=number], input[type=file] {
+  -moz-appearance: textfield; }
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button, input[type=file]::-webkit-inner-spin-button, input[type=file]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }

@@ -1,0 +1,567 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/main.css">
+    <title>seivece1Edit</title>
+    <style type="text/css">
+        /*弹出框btn*/
+        .Treeoperation {
+            cursor: pointer;
+            border: 0;
+            width: 57px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            background: #00b0c7;
+            color: #FFF;
+            font-size: 12px;
+            letter-spacing: 2px;
+            padding: 0 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="content">
+        <h3 class="content-title">
+            物理服务器管理
+        </h3>
+        <div class="operation-box">
+            <div class="btn-box">
+                <a href="javascript:void(0);" class="operation confirm" id="BtnSubmitOperate">确认</a>
+                <a href="javascript:void(0);" class="operation cancel" id="BtnBackOperate">返回</a>
+            </div>
+        </div>
+        <div class="table-input">
+            <table>
+                <tr>
+                    <td class="blank" colspan="99"></td>
+                </tr>
+                <tr>
+                    <td class="w20">服务器编号</td>
+                    <td class="w18"><input type="text" id="fwqbh"></td>
+                    <td class="w23">型号</td>
+                    <td class="w34"><input type="text" id="xh"></td>
+                    <td class="w23">购买日期</td>
+                    <td class="w34"><input type="date" id="gmrq"></td>
+                </tr>
+                <tr>
+                    <td class="w20">产品编号</td>
+                    <td class="w18"><input type="text" id="cpbh"></td>
+                    <td class="w23">序列号</td>
+                    <td class="w34"><input type="text" id="xlh"></td>
+                    <td class="w23">过保日期</td>
+                    <td class="w34"><input type="date" id="gbrq"></td>
+                </tr>
+                <tr>
+                    <td>物理位置</td>
+                    <td colspan="3">
+                        <input type="text" id="wlwz">
+                    </td>
+
+                    <td>机柜位置</td>
+                    <td colspan="3">
+                        <input type="text" id="jgwz">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>固定资产编号</td>
+                    <td colspan="3">
+                        <input type="text" id="gdzcbh">
+                    </td>
+                    <td>数据库/系统应用软件</td>
+                    <td colspan="3">
+                        <input type="text" id="sjkxt">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w20">IP地址</td>
+                    <td class="w18"><input type="text" id="IPdz"></td>
+                    <td class="w23">掩码</td>
+                    <td class="w34"><input type="text" id="ym"></td>
+                    <td class="w23">网关</td>
+                    <td class="w34"><input type="text" id="wg"></td>
+                </tr>
+                <tr>
+                    <td class="w20">机器名</td>
+                    <td class="w18"><input type="text" id="jqm"></td>
+                    <td class="w23">主要业务应用</td>
+                    <td class="w34"><input type="text" id="zyywyy"></td>
+                    <td class="w23">操作系统/补丁</td>
+                    <td class="w34"><input type="text" id="czxt"></td>
+                </tr>
+                <tr>
+                    <td class="w20">CPU</td>
+                    <td class="w18"><input type="text" id="CPU"></td>
+                    <td class="w23">内存</td>
+                    <td class="w34"><input type="text" id="nc"></td>
+                    <td class="w23">硬盘</td>
+                    <td class="w34"><input type="text" id="yp"></td>
+                </tr>
+                <tr>
+                    <td class="w20">涉及的业务数据</td>
+                    <td class="w18"><input type="text" id="sjywsj"></td>
+                    <td class="w23">是否热备</td>
+                    <td class="w34"><input type="text" id="sfrb"></td>
+                    <td class="w23">重要程度</td>
+                    <td class="w34"><input type="text" id="zycd"></td>
+                </tr>
+
+                <tr>
+                    <td>管理员用户名</td>
+                    <td colspan="3">
+                        <input type="text" id="glyhm">
+                    </td>
+                    <td>管理员密码</td>
+                    <td colspan="3">
+                        <input type="text" id="glmm">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>公司用户名</td>
+                    <td colspan="3">
+                        <input type="text" id="gsyhm">
+                    </td>
+
+                    <td>公司密码</td>
+                    <td colspan="3">
+                        <input type="text" id="gsmm">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="w20">序列号版本管理</td>
+                    <td class="w18"><input type="text" id="xlhbbgl"></td>
+                    <td class="w23">是否激活</td>
+                    <td class="w34"><input type="text" id="sfjh"></td>
+                    <td class="w23">激活码</td>
+                    <td class="w34"><input type="text" id="jhm"></td>
+                </tr>
+
+                <tr>
+                    <td>剩余可允许激活数量</td>
+                    <td colspan="3">
+                        <input type="number" id="jhsl">
+                    </td>
+
+                    <td>是否正版软件</td>
+                    <td colspan="3">
+                        <input type="text" id="sfzbrj">
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <!--部门菜单设置 Begin-->
+    <div id="divDeptMenu" style="display: none; width: 250px;">
+        <input type="checkbox" id="cbDeptTreeExpand" />展开/折叠
+        <div id="Content_DeptTree" class="ztree" style="height: 320px; overflow: auto;">
+        </div>
+        <div style="text-align: center; margin-top: 10px; padding-bottom: 10px;  ">
+            <a href="javascript:void(0);" class="Treeoperation" id="btnConfirmDeptMenu">确认</a>
+            &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="Treeoperation" id="btnCancelDeptMenu">取消</a>
+            @*<input type="button" class="button" value="取消" id="btnCancelDeptMenu" />*@
+        </div>
+    </div>
+    <!--部门菜单权限设置 End-->
+</body>
+</html>
+<script src="/Scripts/require/require/2.2.0/require.js"></script>
+<script src="/Scripts/require/config/1.0.0/require.config.js?v=1.2.3"></script>
+
+<script type="text/javascript">
+    require(["MISSY", "jquery.ztree", "jquery.ipInput"], function () {
+        var QueryObj;//通用查询对象
+        var layerWinIdx = -1;
+        $(function () {
+            $("#ip").ipInput();
+            $("#bswz").focus();
+            initPage();
+        });
+
+        //初始化
+        function initPage() {
+            QueryObj = MISSY.ParseQueryObject(window.location.href);
+            $("#BtnSubmitOperate").click(function () { ClickSubmit(); });
+            $("#BtnBackOperate").click(function () { ClickBack(); });
+
+            $("#cbDeptTreeExpand").on("click", function () { MISSY.zTreeExpandNode('Content_DeptTree', this.checked); });
+            $("#btnConfirmDeptMenu").click(function () { ChangeDeptNode(); });
+            $("#btnCancelDeptMenu").click(function () { MISSY.iHideDialog(layerWinMenuIdx); });
+
+
+            if (QueryObj.ID) {
+                $.ajax({
+                    url: 'InitSingle',
+                    data: { ID: QueryObj.ID, Code: QueryObj.Code },
+                    type: 'POST',
+                    dataType: "json",
+                    ContentType: "application/json;charset=utf-8",
+                    success: function (response) {
+                        if (!response) { MISSY.iErrorReturnNull(); return; }
+                        switch (response.ErrorType)//标记
+                        {
+                            case 0://错误
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                            case 1://返回正确数据
+                                break;
+                            case 2://请求地址不正确
+                                MISSY.iNoFound(response.MessageContent);
+                                return;
+                            case 3://未登录
+                                MISSY.iNoLogin(response.MessageContent);
+                                return;
+                            case 4://无页面权限
+                                MISSY.iNoPageAuth(response.MessageContent);
+                                return;
+                            case 5://无操作权限
+                                MISSY.iNoOperateAuth(response.MessageContent);
+                                return;
+                            default:
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                        }
+                        var model = response.Entity;
+                        $("#fwqbh").val(model.fwqbh || "");
+                        //$("#hf_bm").val(model.Dept_Id);
+                        //initDeptTree();
+                        $("#xh").val(model.xh || "");
+                        $("#gmrq").val(MISSY.FormatJSONDate(model.gmrq, 1) || "");
+                        $("#cpbh").val(model.cpbb || "");
+                        $("#xlh").val(model.xlh || "");
+                        $("#gbrq").val(MISSY.FormatJSONDate(model.gbrq, 1) || "");
+                        $("#wlwz").val(model.wlwz || "");
+                        $("#jgwz").val(model.jgwz || "");
+                        $("#gdzcbh").val(model.gdzcbh || "");
+                        $("#sjkxt").val(model.sjkxt || "");
+                        $("#IPdz").val(model.IPdz || "");
+                        $("#ym").val(model.ym || "");
+                        $("#wg").val(model.wg || "");
+                        $("#jqm").val(model.jqm || "");
+                        // $("#nc").val(model.nc || "");
+                        $("#zyywyy").val(model.zyywyy || "");//?
+                        $("#czxt").val(model.czxt || "");
+                        $("#CPU").val(model.CPU || "");
+                        $("#nc").val(model.nc || "");
+                        $("#yp").val(model.yp || "");
+                        $("#sjywsj").val(model.ywsj || "");
+                        $("#sfrb").val(model.sfrb || "");
+                        $("#zycd").val(model.zycd || "");
+                        $("#glyhm").val(model.glyhm || "");
+                        $("#glmm").val(model.glmm || "");
+                        $("#gsyhm").val(model.yhm1 || "");
+                        $("#gsmm").val(model.mm1 || "");
+                        $("#xlhbbgl").val(model.xlhbbgl || "");
+                        $("#sfjh").val(model.sfjh || "");
+                        $("#jhm").val(model.jhm || "");
+                        $("#jhsl").val(model.sykyxjhsl || "");
+                        $("#sfzbrj").val(model.sfzb || "");
+
+
+                        //var temp = model.sfrzwg;
+                        //if (temp != null || temp.length > 1) {
+                        //    $("#ip input[type='number']").each(function (i) {
+                        //        var arr = temp.split(".");
+                        //        $(this).val(arr[i]);
+                        //    })
+                        //}
+
+                    },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                        MISSY.iSystemAjaxError();
+                    }
+                });
+            };
+
+        };
+
+        //改变部门树节点（保存）
+        function ChangeDeptNode() {
+            var zTreeCheckedNodes = $.fn.zTree.getZTreeObj("Content_DeptTree").getCheckedNodes(true);
+            var menuIds = "", menuNames = "";
+            if (zTreeCheckedNodes && zTreeCheckedNodes.length) {
+                $(zTreeCheckedNodes).each(function () {
+                    menuIds += this.Id + "";
+                    menuNames += this.Title + "";
+                })
+            }
+            $("#hf_bm").val(menuIds);
+            $("#bm").val(menuNames);
+            MISSY.iHideDialog(layerWinMenuIdx);
+
+        };
+
+        //返回
+        function ClickBack() {
+            var queryStr = MISSY.ParseQueryString(QueryObj);
+            location.href = "Index?_r=" + Math.random() + "&" + queryStr;
+        };
+
+        //提交
+        function ClickSubmit() {
+            var fwqbh = MISSY.Trim($("#fwqbh").val());
+            if (MISSY.IsEmpty(fwqbh)) {
+                MISSY.iErrorMessage("服务器编号不能为空.");
+                $("#fwqbh").focus();
+                return;
+            }
+            var xh = MISSY.Trim($("#xh").val());
+            if (MISSY.IsEmpty(xh)) {
+                MISSY.iErrorMessage("型号不能为空.");
+                $("#xh").focus();
+                return;
+            }
+            var gmrq = MISSY.Trim($("#gmrq").val());
+            if (MISSY.IsEmpty(gmrq)) {
+                MISSY.iErrorMessage("购买日期不能为空.");
+                $("#gmrq").focus();
+                return;
+            }
+            var cpbh = MISSY.Trim($("#cpbh").val());
+            if (MISSY.IsEmpty(cpbh)) {
+                MISSY.iErrorMessage("产品编号不能为空.");
+                $("#cpbh").focus();
+                return;
+            }
+            var xlh = MISSY.Trim($("#xlh").val()); if (MISSY.IsEmpty(xlh)) {
+                MISSY.iErrorMessage("序列号不能为空.");
+                $("#xlh").focus();
+                return;
+            }
+            var gbrq = MISSY.Trim($("#gbrq").val()); if (MISSY.IsEmpty(gbrq)) {
+                MISSY.iErrorMessage("过保日期不能为空.");
+                $("#gbrq").focus();
+                return;
+            }
+            var wlwz = MISSY.Trim($("#wlwz").val()); if (MISSY.IsEmpty(wlwz)) {
+                MISSY.iErrorMessage("物理地址不能为空.");
+                $("#wlwz").focus();
+                return;
+            }
+            var jgwz = MISSY.Trim($("#jgwz").val()); if (MISSY.IsEmpty(jgwz)) {
+                MISSY.iErrorMessage("机柜位置不能为空.");
+                $("#jgwz").focus();
+                return;
+            }
+            var gdzcbh = MISSY.Trim($("#gdzcbh").val());
+            //if (MISSY.IsEmpty(gdzcbh)) {
+            //    MISSY.iErrorMessage("固定资产编号不能为空.");
+            //    $("#gdzcbh").focus();
+            //    return;
+            //}
+            var sjkxt = MISSY.Trim($("#sjkxt").val()); if (MISSY.IsEmpty(sjkxt)) {
+                MISSY.iErrorMessage("数据库/系统应用软件不能为空.");
+                $("#sjkxt").focus();
+                return;
+            }
+            var IPdz = MISSY.Trim($("#IPdz").val());
+            if (MISSY.IsEmpty(IPdz)) {
+                MISSY.iErrorMessage("IP地址不能为空.");
+                $("#IPdz").focus();
+                return;
+            }
+            var ym = MISSY.Trim($("#ym").val());
+            if (MISSY.IsEmpty(ym)) {
+                MISSY.iErrorMessage("掩码不能为空.");
+                $("#ym").focus();
+                return;
+            }
+            var wg = MISSY.Trim($("#wg").val()); if (MISSY.IsEmpty(wg)) {
+                MISSY.iErrorMessage("网关不能为空.");
+                $("#wg").focus();
+                return;
+            }
+            var jqm = MISSY.Trim($("#jqm").val()); if (MISSY.IsEmpty(jqm)) {
+                MISSY.iErrorMessage("机器名不能为空.");
+                $("#jqm").focus();
+                return;
+            }
+
+            var zyywyy = MISSY.Trim($("#zyywyy").val());
+            //if (MISSY.IsEmpty(zyywyy)) {
+            //    MISSY.iErrorMessage("机柜位置不能为空.");
+            //    $("#zyywyy").focus();
+            //    return;
+            //}
+            var czxt = MISSY.Trim($("#czxt").val()); if (MISSY.IsEmpty(czxt)) {
+                MISSY.iErrorMessage("操作系统不能为空.");
+                $("#czxt").focus();
+                return;
+            }
+            var CPU = MISSY.Trim($("#CPU").val()); if (MISSY.IsEmpty(CPU)) {
+                MISSY.iErrorMessage("CPU不能为空.");
+                $("#CPU").focus();
+                return;
+            }
+            var nc = MISSY.Trim($("#nc").val()); if (MISSY.IsEmpty(nc)) {
+                MISSY.iErrorMessage("内存不能为空.");
+                $("#nc").focus();
+                return;
+            }
+            var yp = MISSY.Trim($("#yp").val()); if (MISSY.IsEmpty(yp)) {
+                MISSY.iErrorMessage("硬盘不能为空.");
+                $("#yp").focus();
+                return;
+            }
+            var sjywsj = MISSY.Trim($("#sjywsj").val()); if (MISSY.IsEmpty(sjywsj)) {
+                MISSY.iErrorMessage("业务数据不能为空.");
+                $("#sjywsj").focus();
+                return;
+            }
+            var sfrb = MISSY.Trim($("#sfrb").val()); if (MISSY.IsEmpty(sfrb)) {
+                MISSY.iErrorMessage("是否热备不能为空.");
+                $("#sfrb").focus();
+                return;
+            }
+            var zycd = MISSY.Trim($("#zycd").val()); if (MISSY.IsEmpty(zycd)) {
+                MISSY.iErrorMessage("重要程度不能为空.");
+                $("#zycd").focus();
+                return;
+            }
+            var glyhm = MISSY.Trim($("#glyhm").val()); if (MISSY.IsEmpty(glyhm)) {
+                MISSY.iErrorMessage("管理员账号不能为空.");
+                $("#glyhm").focus();
+                return;
+            }
+            var glmm = MISSY.Trim($("#glmm").val()); if (MISSY.IsEmpty(glmm)) {
+                MISSY.iErrorMessage("管理员密码不能为空.");
+                $("#glmm").focus();
+                return;
+            }
+            var gsyhm = MISSY.Trim($("#gsyhm").val()); if (MISSY.IsEmpty(gsyhm)) {
+                MISSY.iErrorMessage("公司用户名不能为空.");
+                $("#gsyhm").focus();
+                return;
+            }
+            var gsmm = MISSY.Trim($("#gsmm").val()); if (MISSY.IsEmpty(gsmm)) {
+                MISSY.iErrorMessage("公司密码不能为空.");
+                $("#gsmm").focus();
+                return;
+            }
+            var xlhbbgl = MISSY.Trim($("#xlhbbgl").val()); if (MISSY.IsEmpty(xlhbbgl)) {
+                MISSY.iErrorMessage("序列号版本管理.");
+                $("#xlhbbgl").focus();
+                return;
+            }
+            var sfjh = MISSY.Trim($("#sfjh").val()); if (MISSY.IsEmpty(sfjh)) {
+                MISSY.iErrorMessage("是否激活.");
+                $("#sfjh").focus();
+                return;
+            }
+            var jhm = MISSY.Trim($("#jhm").val()); if (MISSY.IsEmpty(jhm)) {
+                MISSY.iErrorMessage("激活码不能为空.");
+                $("#jhm").focus();
+                return;
+            }
+            var jhsl = MISSY.Trim($("#jhsl").val()); if (MISSY.IsEmpty(jhsl)) {
+                MISSY.iErrorMessage("剩余可允许激活数量不能为空.");
+                $("#jhsl").focus();
+                return;
+            }
+            var sfzbrj = MISSY.Trim($("#sfzbrj").val()); if (MISSY.IsEmpty(sfzbrj)) {
+                MISSY.iErrorMessage("是否为正版软件不能为空.");
+                $("#sfzbrj").focus();
+                return;
+            }
+
+            $.ajax({
+                url: 'AddOrUpdate1',
+                data: {
+                    ID: QueryObj.ID,
+                    fwqbh: fwqbh,
+                    xh: xh,
+                    gmrq: gmrq,
+                    cpbh: cpbh,
+                    xlh: xlh,
+                    gbrq: gbrq,
+                    wlwz: wlwz,
+                    jgwz: jgwz,
+                    gdzcbh: gdzcbh,
+                    sjkxt: sjkxt,
+                    IPdz: IPdz,
+                    ym: ym,
+                    wg: wg,
+                    jqm: jqm,
+                    zyywyy: zyywyy,
+                    czxt: czxt,
+                    CPU: CPU,
+                    nc: nc,
+                    yp: yp,
+                    sjywsj: sjywsj,
+                    sfrb: sfrb,
+                    zycd: zycd,
+                    glyhm: glyhm,
+                    glmm: glmm,
+                    gsyhm: gsyhm,
+                    gsmm: gsmm,
+                    xlhbbg: xlhbbgl,
+                    sfjh: sfjh,
+                    jhm: jhm,
+                    jhsl: jhsl,
+                    sfzbrj: sfzbrj
+                },
+                type: 'POST',
+                dataType: "json",
+                ContentType: "application/json;charset=utf-8",
+                beforeSend: function () { layerLoadIndex = MISSY.iShowLoading("正在执行中，请稍候..."); },
+                success: function (response) {
+                    if (!response) { MISSY.iErrorReturnNull(); return; }
+                    switch (response.ErrorType)//标记
+                    {
+                        case 0://错误
+                            MISSY.iErrorMessage(response.MessageContent);
+                            return;
+                        case 1://返回正确数据
+                            MISSY.iSuccessMessage(response.MessageContent, function () {
+                                // location.href = "List?_r=" + Math.random();
+                                location.href = "Index?_r=" + Math.random();
+                            });
+                            break;
+                        case 2://请求地址不正确
+                            MISSY.iNoFound(response.MessageContent);
+                            return;
+                        case 3://未登录
+                            MISSY.iNoLogin(response.MessageContent);
+                            return;
+                        case 4://无页面权限
+                            MISSY.iNoPageAuth(response.MessageContent);
+                            return;
+                        case 5://无操作权限
+                            MISSY.iNoOperateAuth(response.MessageContent);
+                            return;
+                        default:
+                            MISSY.iErrorMessage(response.MessageContent);
+                            return;
+                    }
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
+                    MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                    MISSY.iSystemAjaxError();
+                },
+                complete: function (xmlHttpRequest, textStatus) {
+                    MISSY.iHideLoading(layerLoadIndex);
+                }
+            });
+        }
+    });
+</script>

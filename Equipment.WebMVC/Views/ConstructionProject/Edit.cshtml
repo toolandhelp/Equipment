@@ -1,0 +1,336 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/main.css">
+    <title>ConstructionProjectEdit</title>
+    <style type="text/css">
+        /*弹出框btn*/
+        .Treeoperation {
+            cursor: pointer;
+            border: 0;
+            width: 57px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            background: #00b0c7;
+            color: #FFF;
+            font-size: 12px;
+            letter-spacing: 2px;
+            padding: 0 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h3 class="content-title">
+            建设项目管理
+        </h3>
+        <div class="operation-box">
+            <div class="btn-box">
+                <a href="javascript:void(0);" class="operation confirm" id="BtnSubmitOperate">确认</a>
+                <a href="javascript:void(0);" class="operation cancel" id="BtnBackOperate">返回</a>
+            </div>
+        </div>
+        <div class="table-input">
+            <table>
+                <tr>
+                    <td class="blank" colspan="99"></td>
+                </tr>
+                <tr>
+                    <td>部门</td>
+                    <td colspan="99">
+                        <input type="text" id="bm" readonly="readonly">
+                        <input type="hidden" id="hf_bm" />
+                        <span class="unit">
+                            <a id="btn_select" href="javascript:void(0);">
+                                选择
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>项目预算</td>
+                    <td colspan="3"><input type="text" id="xmys"></td>
+                    <td>资金来源</td>
+                    <td colspan="3"><input type="text" id="zjly"></td>
+                </tr>
+                <tr>
+                    <td class="w20">项目负责人</td>
+                    <td class="w18"><input type="text" id="xmfzr"></td>
+                    <td class="w23">单位电话</td>
+                    <td class="w34"><input type="text" id="fzrdwdh"></td>
+                    <td class="w23">手机</td>
+                    <td class="w34"><input type="number" id="fzrsj"></td>
+                </tr>
+                <tr>
+                    <td class="w20">项目联系人</td>
+                    <td class="w18"><input type="text" id="xmlxr"></td>
+                    <td class="w23">单位电话</td>
+                    <td class="w34"><input type="text" id="lxrdwdh"></td>
+                    <td class="w23">手机</td>
+                    <td class="w34"><input type="number" id="lxrsj"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <!--部门菜单设置 Begin-->
+    <div id="divDeptMenu" style="display: none; width: 250px;">
+        <input type="checkbox" id="cbDeptTreeExpand" />展开/折叠
+        <div id="Content_DeptTree" class="ztree" style="height: 320px; overflow: auto;">
+        </div>
+        <div style="text-align: center; margin-top: 10px; padding-bottom: 10px;  ">
+            <a href="javascript:void(0);" class="Treeoperation" id="btnConfirmDeptMenu">确认</a>
+            &nbsp;&nbsp;
+            <a href="javascript:void(0);" class="Treeoperation" id="btnCancelDeptMenu">取消</a>
+            @*<input type="button" class="button" value="取消" id="btnCancelDeptMenu" />*@
+        </div>
+    </div>
+    <!--部门菜单权限设置 End-->
+</body>
+</html>
+
+<script src="/Scripts/require/require/2.2.0/require.js"></script>
+<script src="/Scripts/require/config/1.0.0/require.config.js?v=1.2.3"></script>
+
+<script type="text/javascript">
+    require(["MISSY", "jquery.ztree"], function () {
+        var QueryObj;//通用查询对象
+        var layerWinIdx = -1;
+        $(function () {
+            initPage();
+            $("#bm").focus();
+        });
+
+        //初始化
+        function initPage() {
+            QueryObj = MISSY.ParseQueryObject(window.location.href);
+            $("#BtnSubmitOperate").click(function () { ClickSubmit(); });
+            $("#BtnBackOperate").click(function () { ClickBack(); });
+            $("#btn_select,#bm").click(function () { ClickSelect(); });
+            $("#cbDeptTreeExpand").on("click", function () { MISSY.zTreeExpandNode('Content_DeptTree', this.checked); });
+            $("#btnConfirmDeptMenu").click(function () { ChangeDeptNode(); });
+            $("#btnCancelDeptMenu").click(function () { MISSY.iHideDialog(layerWinMenuIdx); });
+
+            if (QueryObj.ID) {
+                $.ajax({
+                    url: 'InitSingle',
+                    data: { ID: QueryObj.ID },
+                    type: 'POST',
+                    dataType: "json",
+                    ContentType: "application/json;charset=utf-8",
+                    success: function (response) {
+                        if (!response) { MISSY.iErrorReturnNull(); return; }
+                        switch (response.ErrorType)//标记
+                        {
+                            case 0://错误
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                            case 1://返回正确数据
+                                break;
+                            case 2://请求地址不正确
+                                MISSY.iNoFound(response.MessageContent);
+                                return;
+                            case 3://未登录
+                                MISSY.iNoLogin(response.MessageContent);
+                                return;
+                            case 4://无页面权限
+                                MISSY.iNoPageAuth(response.MessageContent);
+                                return;
+                            case 5://无操作权限
+                                MISSY.iNoOperateAuth(response.MessageContent);
+                                return;
+                            default:
+                                MISSY.iErrorMessage(response.MessageContent);
+                                return;
+                        }
+                        var model = response.Entity;
+
+                        $("#xmys").val(model.xmys || "");
+                        $("#zjly").val(model.zjly || "");
+                        $("#xmfzr").val(model.xmfzr || "");
+                        $("#fzrdwdh").val(model.fzrdwdh || "");
+                        $("#fzrsj").val(model.fzrsj || "");
+                        $("#xmlxr").val(model.xmlxr || "");
+                        $("#lxrdwdh").val(model.lxrdwdh || "");
+                        $("#lxrsj").val(model.lxrsj || "");
+
+                        $("#hf_bm").val(model.Dept_Id);
+                        initDeptTree();
+
+                    },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                        MISSY.iSystemAjaxError();
+                    }
+                });
+            };
+
+        };
+
+        //选择部门
+        function ClickSelect() {
+            layerWinMenuIdx = MISSY.iShowDialog("divDeptMenu", "选择部门");
+            initDeptTree();
+        };
+
+        //初始化部门树
+        function initDeptTree() {
+            var content = $("#hf_bm").val();
+            // alert(content);
+            var menuCodes = content && content.split(";") || [];
+            var zTree = $.fn.zTree.getZTreeObj("Content_DeptTree");
+            if (zTree) {
+                MISSY.zTreeCheckNodes(zTree, menuCodes);
+            } else {
+                $.ajax({
+                    url: '/GenuineSoftware/TreeDept_Ex',
+                    type: 'POST',
+                    dataType: "json",
+                    async: false,
+                    beforeSend: function () { $("#Content_DeptTree").html("<div style='width:120px;margin: 0 auto;'><img src='/Images/loading.gif' width='32px' height='32px' align='absmiddle' /> 正在加载．．．</div>"); },
+                    ContentType: "application/json;charset=utf-8",
+                    success: function (responseList) {
+                        var treeSetting = {
+                            view: {
+                                showIcon: false
+                            },
+                            check: {
+                                chkStyle: 'radio', radioType: "all", enable: true, chkboxType: { "Y": "", "N": "" }
+                            },
+                            data: {
+                                key: {
+                                    checked: "Checked",
+                                    name: "Title",
+                                    title: "Title"
+                                },
+                                simpleData: {
+                                    enable: true,
+                                    idKey: "Id",
+                                    pIdKey: "Pid",
+                                    rootPId: 0
+                                }
+                            }
+                        };
+                        $.fn.zTree.init($("#Content_DeptTree"), treeSetting, responseList);
+                        MISSY.zTreeCheckNodes($.fn.zTree.getZTreeObj("Content_DeptTree"), menuCodes);
+                        var menuName = MISSY.zTreeCheckedName("Content_DeptTree", ";");
+                        if (menuName)
+                            $("#bm").val(menuName);
+
+                    },
+                    error: function (xmlHttpRequest, textStatus, errorThrown) {
+                        MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                        $("#Content_DeptTree").html("数据加载失败,请稍后再试！");
+                    }
+                });
+            }
+        };
+
+
+        //改变部门树节点（保存）
+        function ChangeDeptNode() {
+            var zTreeCheckedNodes = $.fn.zTree.getZTreeObj("Content_DeptTree").getCheckedNodes(true);
+            var menuIds = "", menuNames = "";
+            if (zTreeCheckedNodes && zTreeCheckedNodes.length) {
+                $(zTreeCheckedNodes).each(function () {
+                    menuIds += this.Id + "";
+                    menuNames += this.Title + "";
+                })
+            }
+            $("#hf_bm").val(menuIds);
+            $("#bm").val(menuNames);
+            MISSY.iHideDialog(layerWinMenuIdx);
+
+        };
+
+        //返回
+        function ClickBack() {
+            var queryStr = MISSY.ParseQueryString(QueryObj);
+            location.href = "Index?_r=" + Math.random() + "&" + queryStr;
+        };
+
+        //提交
+        function ClickSubmit() {
+
+            var bm = MISSY.Trim($("#hf_bm").val());
+            if (MISSY.IsEmpty(bm)) {
+                MISSY.iErrorMessage("请选择部门.");
+                $("#bm").focus();
+                return;
+            }
+
+            $.ajax({
+                url: 'AddOrUpdate',
+                data: {
+                    ID: QueryObj.ID,
+                    Dept_Id: $("#hf_bm").val(),
+                    xmys: $("#xmys").val(),
+                    zjly: $("#zjly").val(),
+                    xmfzr: $("#xmfzr").val(),
+                    fzrdwdh: $("#fzrdwdh").val(),
+                    fzrsj: $("#fzrsj").val(),
+                    xmlxr: $("#xmlxr").val(),
+                    lxrdwdh: $("#lxrdwdh").val(),
+                    lxrsj: $("#lxrsj").val()
+                },
+                type: 'POST',
+                dataType: "json",
+                ContentType: "application/json;charset=utf-8",
+                beforeSend: function () { layerLoadIndex = MISSY.iShowLoading("正在执行中，请稍候..."); },
+                success: function (response) {
+                    if (!response) { MISSY.iErrorReturnNull(); return; }
+                    switch (response.ErrorType)//标记
+                    {
+                        case 0://错误
+                            MISSY.iErrorMessage(response.MessageContent);
+                            return;
+                        case 1://返回正确数据
+                            MISSY.iSuccessMessage(response.MessageContent, function () {
+                                // location.href = "List?_r=" + Math.random();
+                                location.href = "Index?_r=" + Math.random();
+                            });
+                            break;
+                        case 2://请求地址不正确
+                            MISSY.iNoFound(response.MessageContent);
+                            return;
+                        case 3://未登录
+                            MISSY.iNoLogin(response.MessageContent);
+                            return;
+                        case 4://无页面权限
+                            MISSY.iNoPageAuth(response.MessageContent);
+                            return;
+                        case 5://无操作权限
+                            MISSY.iNoOperateAuth(response.MessageContent);
+                            return;
+                        default:
+                            MISSY.iErrorMessage(response.MessageContent);
+                            return;
+                    }
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
+                    MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                    MISSY.iSystemAjaxError();
+                },
+                complete: function (xmlHttpRequest, textStatus) {
+                    MISSY.iHideLoading(layerLoadIndex);
+                }
+            });
+        }
+    });
+</script>
+

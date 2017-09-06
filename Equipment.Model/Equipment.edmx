@@ -1,0 +1,1897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="equipmentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="td_ComputerRoom">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jg" Type="int" />
+          <Property Name="kt" Type="int" />
+          <Property Name="sxt" Type="int" />
+          <Property Name="mhq" Type="int" />
+          <Property Name="UPS" Type="int" />
+          <Property Name="fhm" Type="int" />
+          <Property Name="fhdb" Type="int" />
+          <Property Name="qtmhzz" Type="int" />
+          <Property Name="fljsb" Type="int" />
+          <Property Name="fjdsb" Type="int" />
+          <Property Name="fdcgr" Type="int" />
+          <Property Name="fcsb" Type="int" />
+          <Property Name="fwq" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_ComputerRoom_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jfwlwz" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="mj" Type="int" Nullable="false" />
+          <Property Name="jflx" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lsgx" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sfjrczww" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jfglyxm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lxfs" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_ComputerRoom_sbsl_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sbmc" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="pp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="xh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sl" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_ConstructionProject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="xmys" Type="varchar" MaxLength="150" />
+          <Property Name="zjly" Type="varchar" MaxLength="200" />
+          <Property Name="xmfzr" Type="varchar" MaxLength="50" />
+          <Property Name="fzrdwdh" Type="varchar" MaxLength="30" />
+          <Property Name="fzrsj" Type="int" />
+          <Property Name="xmlxr" Type="varchar" MaxLength="50" />
+          <Property Name="lxrdwdh" Type="varchar" MaxLength="30" />
+          <Property Name="lxrsj" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_GenuineSoftware">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IPdz" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="czxtlx" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bgrjlx" Type="varchar" MaxLength="50" />
+          <Property Name="yt" Type="varchar" MaxLength="200" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_GenuineSoftware_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tsj" Type="int" />
+          <Property Name="bjb" Type="int" />
+          <Property Name="bjrqzwww" Type="int" />
+          <Property Name="jrzwwwsl" Type="int" />
+          <Property Name="az260tqsl" Type="int" />
+          <Property Name="sfdbd" Type="varchar" MaxLength="50" />
+          <Property Name="czxtlx" Type="varchar" MaxLength="50" />
+          <Property Name="yzczxt" Type="varchar" MaxLength="50" />
+          <Property Name="yysqs1" Type="int" />
+          <Property Name="bgrjlx" Type="varchar" MaxLength="50" />
+          <Property Name="sftytg1" Type="varchar" MaxLength="50" />
+          <Property Name="yysqs" Type="int" />
+          <Property Name="sftytg" Type="varchar" MaxLength="50" />
+          <Property Name="tgsl" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Menu">
+          <Key>
+            <PropertyRef Name="menu_Code" />
+          </Key>
+          <Property Name="menu_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menu_Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="menu_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="menu_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="menu_Link" Type="varchar" MaxLength="200" />
+          <Property Name="menu_Image" Type="varchar" MaxLength="50" />
+          <Property Name="menu_Title" Type="varchar" MaxLength="50" />
+          <Property Name="menu_Target" Type="varchar" MaxLength="50" />
+          <Property Name="menu_Sort" Type="int" />
+          <Property Name="menu_Stage" Type="int" Nullable="false" />
+          <Property Name="menu_Note" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="td_Network">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="scjhj" Type="int" />
+          <Property Name="scjhjxh" Type="varchar" MaxLength="50" />
+          <Property Name="scjhjpp" Type="varchar" MaxLength="50" />
+          <Property Name="ecjhj" Type="int" />
+          <Property Name="ecjhjxh" Type="varchar" MaxLength="50" />
+          <Property Name="ecjhjpp" Type="varchar" MaxLength="50" />
+          <Property Name="lyq" Type="int" />
+          <Property Name="lyqxh" Type="varchar" MaxLength="50" />
+          <Property Name="lyqpp" Type="varchar" MaxLength="50" />
+          <Property Name="gdj" Type="int" />
+          <Property Name="gdjxh" Type="varchar" MaxLength="50" />
+          <Property Name="gdjpp" Type="varchar" MaxLength="50" />
+          <Property Name="llfzjh" Type="int" />
+          <Property Name="llfzjhxh" Type="varchar" MaxLength="50" />
+          <Property Name="llfzjhpp" Type="varchar" MaxLength="50" />
+          <Property Name="gx" Type="int" />
+          <Property Name="wxjrd" Type="int" />
+          <Property Name="wxzj" Type="int" />
+          <Property Name="wxzjxh" Type="varchar" MaxLength="50" />
+          <Property Name="wxzjpp" Type="varchar" MaxLength="50" />
+          <Property Name="flwck" Type="varchar" MaxLength="50" />
+          <Property Name="jrcwwwIpdzd" Type="varchar" MaxLength="100" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Network_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bgdd" Type="varchar" MaxLength="250" />
+          <Property Name="lxdh" Type="varchar" MaxLength="50" />
+          <Property Name="jrzwwwzdsl" Type="int" />
+          <Property Name="jrgwwzdsl" Type="int" />
+          <Property Name="jrzwwwIPdzd" Type="varchar" MaxLength="250" />
+          <Property Name="scjhj" Type="int" />
+          <Property Name="ecjhj" Type="int" />
+          <Property Name="lyq" Type="int" />
+          <Property Name="gdj" Type="int" />
+          <Property Name="llfzjh" Type="int" />
+          <Property Name="gx" Type="int" />
+          <Property Name="wxjrd" Type="int" />
+          <Property Name="wxzj" Type="int" />
+          <Property Name="flwck" Type="varchar" MaxLength="100" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_ResourceCatalog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zymlsl" Type="int" />
+          <Property Name="ysjzyl" Type="int" />
+          <Property Name="dysjxl" Type="int" />
+          <Property Name="gxcs" Type="int" />
+          <Property Name="fwl" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Security">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bswz" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fhq" Type="int" />
+          <Property Name="rqjc" Type="int" />
+          <Property Name="VPNsb" Type="int" />
+          <Property Name="VPNsbxh" Type="varchar" MaxLength="100" />
+          <Property Name="VPNsbpp" Type="varchar" MaxLength="100" />
+          <Property Name="zmaqfhsb" Type="int" />
+          <Property Name="zmaqfhsbxh" Type="varchar" MaxLength="100" />
+          <Property Name="zmaqfhsbpp" Type="varchar" MaxLength="100" />
+          <Property Name="mmj" Type="int" />
+          <Property Name="jsmb" Type="int" />
+          <Property Name="yjsjsb" Type="int" />
+          <Property Name="yjsjsbxh" Type="varchar" MaxLength="100" />
+          <Property Name="yjsjsbpp" Type="varchar" MaxLength="100" />
+          <Property Name="sfrzwg" Type="varchar" MaxLength="100" />
+          <Property Name="yyfzjh" Type="int" />
+          <Property Name="xhgrq" Type="int" />
+          <Property Name="swxwgl" Type="int" />
+          <Property Name="wljk" Type="int" />
+          <Property Name="fwqjkpt" Type="int" />
+          <Property Name="ywglpt" Type="int" />
+          <Property Name="wyfcg" Type="int" />
+          <Property Name="zdjkASM" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Security_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bswz" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="dyxt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sfjrzwww" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sbglryxm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lxfs" Type="int" Nullable="false" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Security_xxsl_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="aqsbhrjmc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sfbs" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sl" Type="int" Nullable="false" />
+          <Property Name="pp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="xh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gmrq" Type="datetime" Nullable="false" />
+          <Property Name="gmjq" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Service_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fwqbh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="xh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gmrq" Type="datetime" Nullable="false" />
+          <Property Name="gbrq" Type="datetime" Nullable="false" />
+          <Property Name="cpbb" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="xlh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gdzcbh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="wlwz" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jgwz" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IPdz" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ym" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="wg" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jqm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zyywyy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="czxt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sjkxt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPU" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="yp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ywsj" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sfrb" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zycd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="glyhm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="glmm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="yhm1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mm1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="xlhbbgl" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sfjh" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jhm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sykyxjhsl" Type="int" Nullable="false" />
+          <Property Name="sfzb" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Service_2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IPdz" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tjsj" Type="datetime" Nullable="false" />
+          <Property Name="xnjm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="xtmc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bz" Type="varchar" MaxLength="200" />
+          <Property Name="CPU" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ypkj" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="czxt" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="glyhm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="glmm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="whyhm1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="whmm1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sjyhm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sjmm" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Terminal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zdsl" Type="int" />
+          <Property Name="jrzwwwsl" Type="int" />
+          <Property Name="az360tysl" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_User">
+          <Key>
+            <PropertyRef Name="user_Id" />
+          </Key>
+          <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_Name" Type="varchar" MaxLength="50" />
+          <Property Name="user_Pwd" Type="varchar" MaxLength="500" />
+          <Property Name="user_TrueName" Type="varchar" MaxLength="50" />
+          <Property Name="user_Purview" Type="int" />
+          <Property Name="user_Dept" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_Sign" Type="int" />
+          <Property Name="user_Note" Type="varchar" MaxLength="200" />
+          <Property Name="user_Createtime" Type="datetime" />
+          <Property Name="user_Updatetime" Type="datetime" />
+          <Property Name="user_IsAudit" Type="int" />
+          <Property Name="user_AuditStatus" Type="varchar" MaxLength="50" />
+          <Property Name="user_Order" Type="int" />
+          <Property Name="user_Tel" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ts_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Dept_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_Order" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“equipment.dbo.V_ComputerRoom_Dept”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_ComputerRoom_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="jg" Type="int" />
+          <Property Name="kt" Type="int" />
+          <Property Name="sxt" Type="int" />
+          <Property Name="mhq" Type="int" />
+          <Property Name="UPS" Type="int" />
+          <Property Name="fhm" Type="int" />
+          <Property Name="fhdb" Type="int" />
+          <Property Name="qtmhzz" Type="int" />
+          <Property Name="fljsb" Type="int" />
+          <Property Name="fdcgr" Type="int" />
+          <Property Name="fcsb" Type="int" />
+          <Property Name="fwq" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Dept_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_Order" Type="int" />
+          <Property Name="fjdsb" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“equipment.dbo.V_ConstructionProject_Dept”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_ConstructionProject_Dept">
+          <Key>
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="xmys" Type="varchar" MaxLength="150" />
+          <Property Name="zjly" Type="varchar" MaxLength="200" />
+          <Property Name="xmfzr" Type="varchar" MaxLength="50" />
+          <Property Name="fzrdwdh" Type="varchar" MaxLength="30" />
+          <Property Name="fzrsj" Type="int" />
+          <Property Name="xmlxr" Type="varchar" MaxLength="50" />
+          <Property Name="lxrdwdh" Type="varchar" MaxLength="30" />
+          <Property Name="lxrsj" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Dept_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_Order" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“equipment.dbo.V_GenuineSoftware_Dept”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_GenuineSoftware_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="czxtlx" />
+            <PropertyRef Name="IPdz" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Dept_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_Order" Type="int" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="czxtlx" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IPdz" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="bgrjlx" Type="varchar" MaxLength="50" />
+          <Property Name="yt" Type="varchar" MaxLength="200" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“equipment.dbo.V_Network_Dept”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_Network_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="scjhj" Type="int" />
+          <Property Name="scjhjxh" Type="varchar" MaxLength="50" />
+          <Property Name="scjhjpp" Type="varchar" MaxLength="50" />
+          <Property Name="ecjhj" Type="int" />
+          <Property Name="ecjhjxh" Type="varchar" MaxLength="50" />
+          <Property Name="ecjhjpp" Type="varchar" MaxLength="50" />
+          <Property Name="lyq" Type="int" />
+          <Property Name="lyqxh" Type="varchar" MaxLength="50" />
+          <Property Name="lyqpp" Type="varchar" MaxLength="50" />
+          <Property Name="gdj" Type="int" />
+          <Property Name="gdjxh" Type="varchar" MaxLength="50" />
+          <Property Name="gdjpp" Type="varchar" MaxLength="50" />
+          <Property Name="llfzjh" Type="int" />
+          <Property Name="llfzjhxh" Type="varchar" MaxLength="50" />
+          <Property Name="llfzjhpp" Type="varchar" MaxLength="50" />
+          <Property Name="gx" Type="int" />
+          <Property Name="wxjrd" Type="int" />
+          <Property Name="wxzj" Type="int" />
+          <Property Name="wxzjxh" Type="varchar" MaxLength="50" />
+          <Property Name="wxzjpp" Type="varchar" MaxLength="50" />
+          <Property Name="flwck" Type="varchar" MaxLength="50" />
+          <Property Name="jrcwwwIpdzd" Type="varchar" MaxLength="100" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Dept_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_Order" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“equipment.dbo.V_ResourceCatalog_Dept”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_ResourceCatalog_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zymlsl" Type="int" />
+          <Property Name="ysjzyl" Type="int" />
+          <Property Name="dysjxl" Type="int" />
+          <Property Name="gxcs" Type="int" />
+          <Property Name="fwl" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Dept_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_Order" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“equipment.dbo.V_Security_Dept”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_Security_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="bswz" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bswz" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="rqjc" Type="int" />
+          <Property Name="fhq" Type="int" />
+          <Property Name="VPNsb" Type="int" />
+          <Property Name="VPNsbxh" Type="varchar" MaxLength="100" />
+          <Property Name="VPNsbpp" Type="varchar" MaxLength="100" />
+          <Property Name="zmaqfhsb" Type="int" />
+          <Property Name="zmaqfhsbxh" Type="varchar" MaxLength="100" />
+          <Property Name="zmaqfhsbpp" Type="varchar" MaxLength="100" />
+          <Property Name="mmj" Type="int" />
+          <Property Name="jsmb" Type="int" />
+          <Property Name="yjsjsb" Type="int" />
+          <Property Name="yjsjsbxh" Type="varchar" MaxLength="100" />
+          <Property Name="yjsjsbpp" Type="varchar" MaxLength="100" />
+          <Property Name="sfrzwg" Type="varchar" MaxLength="100" />
+          <Property Name="yyfzjh" Type="int" />
+          <Property Name="xhgrq" Type="int" />
+          <Property Name="swxwgl" Type="int" />
+          <Property Name="wljk" Type="int" />
+          <Property Name="fwqjkpt" Type="int" />
+          <Property Name="ywglpt" Type="int" />
+          <Property Name="wyfcg" Type="int" />
+          <Property Name="zdjkASM" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Dept_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_Order" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“equipment.dbo.V_Terminal_Dept”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_Terminal_Dept">
+          <Key>
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="Dept_Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zdsl" Type="int" />
+          <Property Name="jrzwwwsl" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="az360tysl" Type="int" />
+          <Property Name="OperatTime" Type="datetime" Nullable="false" />
+          <Property Name="OperatPid" Type="int" Nullable="false" />
+          <Property Name="Dept_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Dept_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_FatherId" Type="varchar" MaxLength="50" />
+          <Property Name="Dept_Order" Type="int" />
+        </EntityType>
+        <EntityContainer Name="equipmentModelStoreContainer">
+          <EntitySet Name="td_ComputerRoom" EntityType="Self.td_ComputerRoom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_ComputerRoom_1" EntityType="Self.td_ComputerRoom_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_ComputerRoom_sbsl_1" EntityType="Self.td_ComputerRoom_sbsl_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_ConstructionProject" EntityType="Self.td_ConstructionProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_GenuineSoftware" EntityType="Self.td_GenuineSoftware" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_GenuineSoftware_1" EntityType="Self.td_GenuineSoftware_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Menu" EntityType="Self.td_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Network" EntityType="Self.td_Network" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Network_1" EntityType="Self.td_Network_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_ResourceCatalog" EntityType="Self.td_ResourceCatalog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Security" EntityType="Self.td_Security" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Security_1" EntityType="Self.td_Security_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Security_xxsl_1" EntityType="Self.td_Security_xxsl_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Service_1" EntityType="Self.td_Service_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Service_2" EntityType="Self.td_Service_2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_Terminal" EntityType="Self.td_Terminal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="td_User" EntityType="Self.td_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ts_Dept" EntityType="Self.ts_Dept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_ComputerRoom_Dept" EntityType="Self.V_ComputerRoom_Dept" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_ComputerRoom_Dept].[ID] AS [ID], 
+    [V_ComputerRoom_Dept].[Dept_Id] AS [Dept_Id], 
+    [V_ComputerRoom_Dept].[jg] AS [jg], 
+    [V_ComputerRoom_Dept].[kt] AS [kt], 
+    [V_ComputerRoom_Dept].[sxt] AS [sxt], 
+    [V_ComputerRoom_Dept].[mhq] AS [mhq], 
+    [V_ComputerRoom_Dept].[UPS] AS [UPS], 
+    [V_ComputerRoom_Dept].[fhm] AS [fhm], 
+    [V_ComputerRoom_Dept].[fhdb] AS [fhdb], 
+    [V_ComputerRoom_Dept].[qtmhzz] AS [qtmhzz], 
+    [V_ComputerRoom_Dept].[fljsb] AS [fljsb], 
+    [V_ComputerRoom_Dept].[fdcgr] AS [fdcgr], 
+    [V_ComputerRoom_Dept].[fcsb] AS [fcsb], 
+    [V_ComputerRoom_Dept].[fwq] AS [fwq], 
+    [V_ComputerRoom_Dept].[OperatTime] AS [OperatTime], 
+    [V_ComputerRoom_Dept].[OperatPid] AS [OperatPid], 
+    [V_ComputerRoom_Dept].[Expr1] AS [Expr1], 
+    [V_ComputerRoom_Dept].[Dept_Name] AS [Dept_Name], 
+    [V_ComputerRoom_Dept].[Dept_Code] AS [Dept_Code], 
+    [V_ComputerRoom_Dept].[Dept_FatherId] AS [Dept_FatherId], 
+    [V_ComputerRoom_Dept].[Dept_Order] AS [Dept_Order], 
+    [V_ComputerRoom_Dept].[fjdsb] AS [fjdsb]
+    FROM [dbo].[V_ComputerRoom_Dept] AS [V_ComputerRoom_Dept]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_ConstructionProject_Dept" EntityType="Self.V_ConstructionProject_Dept" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_ConstructionProject_Dept].[Dept_Id] AS [Dept_Id], 
+    [V_ConstructionProject_Dept].[ID] AS [ID], 
+    [V_ConstructionProject_Dept].[xmys] AS [xmys], 
+    [V_ConstructionProject_Dept].[zjly] AS [zjly], 
+    [V_ConstructionProject_Dept].[xmfzr] AS [xmfzr], 
+    [V_ConstructionProject_Dept].[fzrdwdh] AS [fzrdwdh], 
+    [V_ConstructionProject_Dept].[fzrsj] AS [fzrsj], 
+    [V_ConstructionProject_Dept].[xmlxr] AS [xmlxr], 
+    [V_ConstructionProject_Dept].[lxrdwdh] AS [lxrdwdh], 
+    [V_ConstructionProject_Dept].[lxrsj] AS [lxrsj], 
+    [V_ConstructionProject_Dept].[OperatTime] AS [OperatTime], 
+    [V_ConstructionProject_Dept].[OperatPid] AS [OperatPid], 
+    [V_ConstructionProject_Dept].[Dept_Name] AS [Dept_Name], 
+    [V_ConstructionProject_Dept].[Dept_Code] AS [Dept_Code], 
+    [V_ConstructionProject_Dept].[Dept_FatherId] AS [Dept_FatherId], 
+    [V_ConstructionProject_Dept].[Dept_Order] AS [Dept_Order]
+    FROM [dbo].[V_ConstructionProject_Dept] AS [V_ConstructionProject_Dept]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_GenuineSoftware_Dept" EntityType="Self.V_GenuineSoftware_Dept" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_GenuineSoftware_Dept].[ID] AS [ID], 
+    [V_GenuineSoftware_Dept].[Dept_Name] AS [Dept_Name], 
+    [V_GenuineSoftware_Dept].[Dept_Code] AS [Dept_Code], 
+    [V_GenuineSoftware_Dept].[Dept_FatherId] AS [Dept_FatherId], 
+    [V_GenuineSoftware_Dept].[Dept_Order] AS [Dept_Order], 
+    [V_GenuineSoftware_Dept].[Dept_Id] AS [Dept_Id], 
+    [V_GenuineSoftware_Dept].[czxtlx] AS [czxtlx], 
+    [V_GenuineSoftware_Dept].[IPdz] AS [IPdz], 
+    [V_GenuineSoftware_Dept].[bgrjlx] AS [bgrjlx], 
+    [V_GenuineSoftware_Dept].[yt] AS [yt], 
+    [V_GenuineSoftware_Dept].[OperatTime] AS [OperatTime], 
+    [V_GenuineSoftware_Dept].[OperatPid] AS [OperatPid]
+    FROM [dbo].[V_GenuineSoftware_Dept] AS [V_GenuineSoftware_Dept]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Network_Dept" EntityType="Self.V_Network_Dept" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Network_Dept].[ID] AS [ID], 
+    [V_Network_Dept].[Dept_Id] AS [Dept_Id], 
+    [V_Network_Dept].[scjhj] AS [scjhj], 
+    [V_Network_Dept].[scjhjxh] AS [scjhjxh], 
+    [V_Network_Dept].[scjhjpp] AS [scjhjpp], 
+    [V_Network_Dept].[ecjhj] AS [ecjhj], 
+    [V_Network_Dept].[ecjhjxh] AS [ecjhjxh], 
+    [V_Network_Dept].[ecjhjpp] AS [ecjhjpp], 
+    [V_Network_Dept].[lyq] AS [lyq], 
+    [V_Network_Dept].[lyqxh] AS [lyqxh], 
+    [V_Network_Dept].[lyqpp] AS [lyqpp], 
+    [V_Network_Dept].[gdj] AS [gdj], 
+    [V_Network_Dept].[gdjxh] AS [gdjxh], 
+    [V_Network_Dept].[gdjpp] AS [gdjpp], 
+    [V_Network_Dept].[llfzjh] AS [llfzjh], 
+    [V_Network_Dept].[llfzjhxh] AS [llfzjhxh], 
+    [V_Network_Dept].[llfzjhpp] AS [llfzjhpp], 
+    [V_Network_Dept].[gx] AS [gx], 
+    [V_Network_Dept].[wxjrd] AS [wxjrd], 
+    [V_Network_Dept].[wxzj] AS [wxzj], 
+    [V_Network_Dept].[wxzjxh] AS [wxzjxh], 
+    [V_Network_Dept].[wxzjpp] AS [wxzjpp], 
+    [V_Network_Dept].[flwck] AS [flwck], 
+    [V_Network_Dept].[jrcwwwIpdzd] AS [jrcwwwIpdzd], 
+    [V_Network_Dept].[OperatTime] AS [OperatTime], 
+    [V_Network_Dept].[OperatPid] AS [OperatPid], 
+    [V_Network_Dept].[Dept_Name] AS [Dept_Name], 
+    [V_Network_Dept].[Dept_Code] AS [Dept_Code], 
+    [V_Network_Dept].[Dept_FatherId] AS [Dept_FatherId], 
+    [V_Network_Dept].[Dept_Order] AS [Dept_Order]
+    FROM [dbo].[V_Network_Dept] AS [V_Network_Dept]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_ResourceCatalog_Dept" EntityType="Self.V_ResourceCatalog_Dept" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_ResourceCatalog_Dept].[ID] AS [ID], 
+    [V_ResourceCatalog_Dept].[Dept_Id] AS [Dept_Id], 
+    [V_ResourceCatalog_Dept].[zymlsl] AS [zymlsl], 
+    [V_ResourceCatalog_Dept].[ysjzyl] AS [ysjzyl], 
+    [V_ResourceCatalog_Dept].[dysjxl] AS [dysjxl], 
+    [V_ResourceCatalog_Dept].[gxcs] AS [gxcs], 
+    [V_ResourceCatalog_Dept].[fwl] AS [fwl], 
+    [V_ResourceCatalog_Dept].[OperatTime] AS [OperatTime], 
+    [V_ResourceCatalog_Dept].[OperatPid] AS [OperatPid], 
+    [V_ResourceCatalog_Dept].[Dept_Name] AS [Dept_Name], 
+    [V_ResourceCatalog_Dept].[Dept_Code] AS [Dept_Code], 
+    [V_ResourceCatalog_Dept].[Dept_FatherId] AS [Dept_FatherId], 
+    [V_ResourceCatalog_Dept].[Dept_Order] AS [Dept_Order]
+    FROM [dbo].[V_ResourceCatalog_Dept] AS [V_ResourceCatalog_Dept]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Security_Dept" EntityType="Self.V_Security_Dept" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Security_Dept].[ID] AS [ID], 
+    [V_Security_Dept].[Dept_Id] AS [Dept_Id], 
+    [V_Security_Dept].[bswz] AS [bswz], 
+    [V_Security_Dept].[rqjc] AS [rqjc], 
+    [V_Security_Dept].[fhq] AS [fhq], 
+    [V_Security_Dept].[VPNsb] AS [VPNsb], 
+    [V_Security_Dept].[VPNsbxh] AS [VPNsbxh], 
+    [V_Security_Dept].[VPNsbpp] AS [VPNsbpp], 
+    [V_Security_Dept].[zmaqfhsb] AS [zmaqfhsb], 
+    [V_Security_Dept].[zmaqfhsbxh] AS [zmaqfhsbxh], 
+    [V_Security_Dept].[zmaqfhsbpp] AS [zmaqfhsbpp], 
+    [V_Security_Dept].[mmj] AS [mmj], 
+    [V_Security_Dept].[jsmb] AS [jsmb], 
+    [V_Security_Dept].[yjsjsb] AS [yjsjsb], 
+    [V_Security_Dept].[yjsjsbxh] AS [yjsjsbxh], 
+    [V_Security_Dept].[yjsjsbpp] AS [yjsjsbpp], 
+    [V_Security_Dept].[sfrzwg] AS [sfrzwg], 
+    [V_Security_Dept].[yyfzjh] AS [yyfzjh], 
+    [V_Security_Dept].[xhgrq] AS [xhgrq], 
+    [V_Security_Dept].[swxwgl] AS [swxwgl], 
+    [V_Security_Dept].[wljk] AS [wljk], 
+    [V_Security_Dept].[fwqjkpt] AS [fwqjkpt], 
+    [V_Security_Dept].[ywglpt] AS [ywglpt], 
+    [V_Security_Dept].[wyfcg] AS [wyfcg], 
+    [V_Security_Dept].[zdjkASM] AS [zdjkASM], 
+    [V_Security_Dept].[OperatTime] AS [OperatTime], 
+    [V_Security_Dept].[OperatPid] AS [OperatPid], 
+    [V_Security_Dept].[Dept_Name] AS [Dept_Name], 
+    [V_Security_Dept].[Dept_Code] AS [Dept_Code], 
+    [V_Security_Dept].[Dept_FatherId] AS [Dept_FatherId], 
+    [V_Security_Dept].[Dept_Order] AS [Dept_Order]
+    FROM [dbo].[V_Security_Dept] AS [V_Security_Dept]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Terminal_Dept" EntityType="Self.V_Terminal_Dept" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_Terminal_Dept].[Dept_Id] AS [Dept_Id], 
+    [V_Terminal_Dept].[zdsl] AS [zdsl], 
+    [V_Terminal_Dept].[jrzwwwsl] AS [jrzwwwsl], 
+    [V_Terminal_Dept].[ID] AS [ID], 
+    [V_Terminal_Dept].[az360tysl] AS [az360tysl], 
+    [V_Terminal_Dept].[OperatTime] AS [OperatTime], 
+    [V_Terminal_Dept].[OperatPid] AS [OperatPid], 
+    [V_Terminal_Dept].[Dept_Name] AS [Dept_Name], 
+    [V_Terminal_Dept].[Dept_Code] AS [Dept_Code], 
+    [V_Terminal_Dept].[Dept_FatherId] AS [Dept_FatherId], 
+    [V_Terminal_Dept].[Dept_Order] AS [Dept_Order]
+    FROM [dbo].[V_Terminal_Dept] AS [V_Terminal_Dept]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="equipmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="equipmentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="td_Network" EntityType="equipmentModel.td_Network" />
+          <EntitySet Name="td_User" EntityType="equipmentModel.td_User" />
+          <EntitySet Name="ts_Dept" EntityType="equipmentModel.ts_Dept" />
+          <EntitySet Name="td_Security" EntityType="equipmentModel.td_Security" />
+          <EntitySet Name="V_Network_Dept" EntityType="equipmentModel.V_Network_Dept" />
+          <EntitySet Name="V_GenuineSoftware_Dept" EntityType="equipmentModel.V_GenuineSoftware_Dept" />
+          <EntitySet Name="V_Security_Dept" EntityType="equipmentModel.V_Security_Dept" />
+          <EntitySet Name="V_ComputerRoom_Dept" EntityType="equipmentModel.V_ComputerRoom_Dept" />
+          <EntitySet Name="td_ComputerRoom" EntityType="equipmentModel.td_ComputerRoom" />
+          <EntitySet Name="td_GenuineSoftware" EntityType="equipmentModel.td_GenuineSoftware" />
+          <EntitySet Name="td_ConstructionProject" EntityType="equipmentModel.td_ConstructionProject" />
+          <EntitySet Name="td_ResourceCatalog" EntityType="equipmentModel.td_ResourceCatalog" />
+          <EntitySet Name="td_Terminal" EntityType="equipmentModel.td_Terminal" />
+          <EntitySet Name="V_ConstructionProject_Dept" EntityType="equipmentModel.V_ConstructionProject_Dept" />
+          <EntitySet Name="V_ResourceCatalog_Dept" EntityType="equipmentModel.V_ResourceCatalog_Dept" />
+          <EntitySet Name="V_Terminal_Dept" EntityType="equipmentModel.V_Terminal_Dept" />
+          <EntitySet Name="td_Network_1" EntityType="equipmentModel.td_Network_1" />
+          <EntitySet Name="td_GenuineSoftware_1" EntityType="equipmentModel.td_GenuineSoftware_1" />
+          <EntitySet Name="td_Security_1" EntityType="equipmentModel.td_Security_1" />
+          <EntitySet Name="td_ComputerRoom_sbsl_1" EntityType="equipmentModel.td_ComputerRoom_sbsl_1" />
+          <EntitySet Name="td_Security_xxsl_1" EntityType="equipmentModel.td_Security_xxsl_1" />
+          <EntitySet Name="td_ComputerRoom_1" EntityType="equipmentModel.td_ComputerRoom_1" />
+          <EntitySet Name="td_Menu" EntityType="equipmentModel.td_Menu" />
+          <EntitySet Name="td_Service_1" EntityType="equipmentModel.td_Service_1" />
+          <EntitySet Name="td_Service_2" EntityType="equipmentModel.td_Service_2" />
+        </EntityContainer>
+        <EntityType Name="td_Network">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="scjhj" Type="Int32" />
+          <Property Name="scjhjxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="scjhjpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ecjhj" Type="Int32" />
+          <Property Name="ecjhjxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ecjhjpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lyq" Type="Int32" />
+          <Property Name="lyqxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lyqpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gdj" Type="Int32" />
+          <Property Name="gdjxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gdjpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="llfzjh" Type="Int32" />
+          <Property Name="llfzjhxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="llfzjhpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gx" Type="Int32" />
+          <Property Name="wxjrd" Type="Int32" />
+          <Property Name="wxzj" Type="Int32" />
+          <Property Name="wxzjxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wxzjpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flwck" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jrcwwwIpdzd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_User">
+          <Key>
+            <PropertyRef Name="user_Id" />
+          </Key>
+          <Property Name="user_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_Pwd" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="user_TrueName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_Purview" Type="Int32" />
+          <Property Name="user_Dept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_Sign" Type="Int32" />
+          <Property Name="user_Note" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="user_Createtime" Type="DateTime" Precision="3" />
+          <Property Name="user_Updatetime" Type="DateTime" Precision="3" />
+          <Property Name="user_IsAudit" Type="Int32" />
+          <Property Name="user_AuditStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_Order" Type="Int32" />
+          <Property Name="user_Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ts_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="td_Security">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bswz" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fhq" Type="Int32" />
+          <Property Name="rqjc" Type="Int32" />
+          <Property Name="VPNsb" Type="Int32" />
+          <Property Name="VPNsbxh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VPNsbpp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="zmaqfhsb" Type="Int32" />
+          <Property Name="zmaqfhsbxh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="zmaqfhsbpp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mmj" Type="Int32" />
+          <Property Name="jsmb" Type="Int32" />
+          <Property Name="yjsjsb" Type="Int32" />
+          <Property Name="yjsjsbxh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="yjsjsbpp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sfrzwg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="yyfzjh" Type="Int32" />
+          <Property Name="xhgrq" Type="Int32" />
+          <Property Name="swxwgl" Type="Int32" />
+          <Property Name="wljk" Type="Int32" />
+          <Property Name="fwqjkpt" Type="Int32" />
+          <Property Name="ywglpt" Type="Int32" />
+          <Property Name="wyfcg" Type="Int32" />
+          <Property Name="zdjkASM" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_Network_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="scjhj" Type="Int32" />
+          <Property Name="scjhjxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="scjhjpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ecjhj" Type="Int32" />
+          <Property Name="ecjhjxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ecjhjpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lyq" Type="Int32" />
+          <Property Name="lyqxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lyqpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gdj" Type="Int32" />
+          <Property Name="gdjxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gdjpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="llfzjh" Type="Int32" />
+          <Property Name="llfzjhxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="llfzjhpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gx" Type="Int32" />
+          <Property Name="wxjrd" Type="Int32" />
+          <Property Name="wxzj" Type="Int32" />
+          <Property Name="wxzjxh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wxzjpp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flwck" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jrcwwwIpdzd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_GenuineSoftware_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="czxtlx" />
+            <PropertyRef Name="IPdz" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Order" Type="Int32" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="czxtlx" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IPdz" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="bgrjlx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yt" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_Security_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="bswz" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bswz" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="rqjc" Type="Int32" />
+          <Property Name="fhq" Type="Int32" />
+          <Property Name="VPNsb" Type="Int32" />
+          <Property Name="VPNsbxh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VPNsbpp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="zmaqfhsb" Type="Int32" />
+          <Property Name="zmaqfhsbxh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="zmaqfhsbpp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mmj" Type="Int32" />
+          <Property Name="jsmb" Type="Int32" />
+          <Property Name="yjsjsb" Type="Int32" />
+          <Property Name="yjsjsbxh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="yjsjsbpp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sfrzwg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="yyfzjh" Type="Int32" />
+          <Property Name="xhgrq" Type="Int32" />
+          <Property Name="swxwgl" Type="Int32" />
+          <Property Name="wljk" Type="Int32" />
+          <Property Name="fwqjkpt" Type="Int32" />
+          <Property Name="ywglpt" Type="Int32" />
+          <Property Name="wyfcg" Type="Int32" />
+          <Property Name="zdjkASM" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_ComputerRoom_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jg" Type="Int32" />
+          <Property Name="kt" Type="Int32" />
+          <Property Name="sxt" Type="Int32" />
+          <Property Name="mhq" Type="Int32" />
+          <Property Name="UPS" Type="Int32" />
+          <Property Name="fhm" Type="Int32" />
+          <Property Name="fhdb" Type="Int32" />
+          <Property Name="qtmhzz" Type="Int32" />
+          <Property Name="fljsb" Type="Int32" />
+          <Property Name="fdcgr" Type="Int32" />
+          <Property Name="fcsb" Type="Int32" />
+          <Property Name="fwq" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+          <Property Name="Expr1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Order" Type="Int32" />
+          <Property Name="fjdsb" Type="Int32" />
+        </EntityType>
+        <EntityType Name="td_ComputerRoom">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jg" Type="Int32" />
+          <Property Name="kt" Type="Int32" />
+          <Property Name="sxt" Type="Int32" />
+          <Property Name="mhq" Type="Int32" />
+          <Property Name="UPS" Type="Int32" />
+          <Property Name="fhm" Type="Int32" />
+          <Property Name="fhdb" Type="Int32" />
+          <Property Name="qtmhzz" Type="Int32" />
+          <Property Name="fljsb" Type="Int32" />
+          <Property Name="fjdsb" Type="Int32" />
+          <Property Name="fdcgr" Type="Int32" />
+          <Property Name="fcsb" Type="Int32" />
+          <Property Name="fwq" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_GenuineSoftware">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IPdz" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="czxtlx" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bgrjlx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yt" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_ConstructionProject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="xmys" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="zjly" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="xmfzr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fzrdwdh" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fzrsj" Type="Int32" />
+          <Property Name="xmlxr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lxrdwdh" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="lxrsj" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_ResourceCatalog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zymlsl" Type="Int32" />
+          <Property Name="ysjzyl" Type="Int32" />
+          <Property Name="dysjxl" Type="Int32" />
+          <Property Name="gxcs" Type="Int32" />
+          <Property Name="fwl" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Terminal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zdsl" Type="Int32" />
+          <Property Name="jrzwwwsl" Type="Int32" />
+          <Property Name="az360tysl" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_ConstructionProject_Dept">
+          <Key>
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="xmys" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="zjly" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="xmfzr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fzrdwdh" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fzrsj" Type="Int32" />
+          <Property Name="xmlxr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lxrdwdh" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="lxrsj" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_ResourceCatalog_Dept">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zymlsl" Type="Int32" />
+          <Property Name="ysjzyl" Type="Int32" />
+          <Property Name="dysjxl" Type="Int32" />
+          <Property Name="gxcs" Type="Int32" />
+          <Property Name="fwl" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_Terminal_Dept">
+          <Key>
+            <PropertyRef Name="Dept_Id" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="OperatTime" />
+            <PropertyRef Name="OperatPid" />
+          </Key>
+          <Property Name="Dept_Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zdsl" Type="Int32" />
+          <Property Name="jrzwwwsl" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="az360tysl" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+          <Property Name="Dept_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="td_Network_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bgdd" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="lxdh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jrzwwwzdsl" Type="Int32" />
+          <Property Name="jrgwwzdsl" Type="Int32" />
+          <Property Name="jrzwwwIPdzd" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="scjhj" Type="Int32" />
+          <Property Name="ecjhj" Type="Int32" />
+          <Property Name="lyq" Type="Int32" />
+          <Property Name="llfzjh" Type="Int32" />
+          <Property Name="gx" Type="Int32" />
+          <Property Name="wxjrd" Type="Int32" />
+          <Property Name="wxzj" Type="Int32" />
+          <Property Name="flwck" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+          <Property Name="gdj" Type="Int32" />
+        </EntityType>
+        <EntityType Name="td_GenuineSoftware_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tsj" Type="Int32" />
+          <Property Name="bjb" Type="Int32" />
+          <Property Name="bjrqzwww" Type="Int32" />
+          <Property Name="jrzwwwsl" Type="Int32" />
+          <Property Name="az260tqsl" Type="Int32" />
+          <Property Name="sfdbd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="czxtlx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yzczxt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yysqs1" Type="Int32" />
+          <Property Name="bgrjlx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sftytg1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yysqs" Type="Int32" />
+          <Property Name="sftytg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tgsl" Type="Int32" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Security_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bswz" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dyxt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sfjrzwww" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sbglryxm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lxfs" Type="Int32" Nullable="false" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_ComputerRoom_sbsl_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sbmc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="pp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="xh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sl" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Security_xxsl_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="aqsbhrjmc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sfbs" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sl" Type="Int32" Nullable="false" />
+          <Property Name="pp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="xh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gmrq" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gmjq" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_ComputerRoom_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jfwlwz" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="mj" Type="Int32" Nullable="false" />
+          <Property Name="jflx" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lsgx" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sfjrczww" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jfglyxm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lxfs" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Menu">
+          <Key>
+            <PropertyRef Name="menu_Code" />
+          </Key>
+          <Property Name="menu_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menu_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menu_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menu_FatherId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menu_Link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="menu_Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menu_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menu_Target" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="menu_Sort" Type="Int32" />
+          <Property Name="menu_Stage" Type="Int32" Nullable="false" />
+          <Property Name="menu_Note" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="td_Service_1">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fwqbh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="xh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gmrq" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="gbrq" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cpbb" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="xlh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gdzcbh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wlwz" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jgwz" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IPdz" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ym" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wg" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jqm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zyywyy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="czxt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sjkxt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CPU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ywsj" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sfrb" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zycd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="glyhm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="glmm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="yhm1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mm1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="xlhbbgl" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sfjh" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jhm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sykyxjhsl" Type="Int32" Nullable="false" />
+          <Property Name="sfzb" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OperatTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperatPid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_Service_2">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IPdz" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tjsj" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xnjm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dept_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="xtmc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bz" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CPU" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ypkj" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="czxt" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="glyhm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="glmm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="whyhm1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="whmm1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sjyhm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sjmm" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="equipmentModelStoreContainer" CdmEntityContainer="equipmentEntities">
+          <EntitySetMapping Name="td_Network">
+            <EntityTypeMapping TypeName="equipmentModel.td_Network">
+              <MappingFragment StoreEntitySet="td_Network">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="jrcwwwIpdzd" ColumnName="jrcwwwIpdzd" />
+                <ScalarProperty Name="flwck" ColumnName="flwck" />
+                <ScalarProperty Name="wxzjpp" ColumnName="wxzjpp" />
+                <ScalarProperty Name="wxzjxh" ColumnName="wxzjxh" />
+                <ScalarProperty Name="wxzj" ColumnName="wxzj" />
+                <ScalarProperty Name="wxjrd" ColumnName="wxjrd" />
+                <ScalarProperty Name="gx" ColumnName="gx" />
+                <ScalarProperty Name="llfzjhpp" ColumnName="llfzjhpp" />
+                <ScalarProperty Name="llfzjhxh" ColumnName="llfzjhxh" />
+                <ScalarProperty Name="llfzjh" ColumnName="llfzjh" />
+                <ScalarProperty Name="gdjpp" ColumnName="gdjpp" />
+                <ScalarProperty Name="gdjxh" ColumnName="gdjxh" />
+                <ScalarProperty Name="gdj" ColumnName="gdj" />
+                <ScalarProperty Name="lyqpp" ColumnName="lyqpp" />
+                <ScalarProperty Name="lyqxh" ColumnName="lyqxh" />
+                <ScalarProperty Name="lyq" ColumnName="lyq" />
+                <ScalarProperty Name="ecjhjpp" ColumnName="ecjhjpp" />
+                <ScalarProperty Name="ecjhjxh" ColumnName="ecjhjxh" />
+                <ScalarProperty Name="ecjhj" ColumnName="ecjhj" />
+                <ScalarProperty Name="scjhjpp" ColumnName="scjhjpp" />
+                <ScalarProperty Name="scjhjxh" ColumnName="scjhjxh" />
+                <ScalarProperty Name="scjhj" ColumnName="scjhj" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_User">
+            <EntityTypeMapping TypeName="equipmentModel.td_User">
+              <MappingFragment StoreEntitySet="td_User">
+                <ScalarProperty Name="user_Tel" ColumnName="user_Tel" />
+                <ScalarProperty Name="user_Order" ColumnName="user_Order" />
+                <ScalarProperty Name="user_AuditStatus" ColumnName="user_AuditStatus" />
+                <ScalarProperty Name="user_IsAudit" ColumnName="user_IsAudit" />
+                <ScalarProperty Name="user_Updatetime" ColumnName="user_Updatetime" />
+                <ScalarProperty Name="user_Createtime" ColumnName="user_Createtime" />
+                <ScalarProperty Name="user_Note" ColumnName="user_Note" />
+                <ScalarProperty Name="user_Sign" ColumnName="user_Sign" />
+                <ScalarProperty Name="user_Dept" ColumnName="user_Dept" />
+                <ScalarProperty Name="user_Purview" ColumnName="user_Purview" />
+                <ScalarProperty Name="user_TrueName" ColumnName="user_TrueName" />
+                <ScalarProperty Name="user_Pwd" ColumnName="user_Pwd" />
+                <ScalarProperty Name="user_Name" ColumnName="user_Name" />
+                <ScalarProperty Name="user_Id" ColumnName="user_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ts_Dept">
+            <EntityTypeMapping TypeName="equipmentModel.ts_Dept">
+              <MappingFragment StoreEntitySet="ts_Dept">
+                <ScalarProperty Name="Dept_Order" ColumnName="Dept_Order" />
+                <ScalarProperty Name="Dept_FatherId" ColumnName="Dept_FatherId" />
+                <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_Security">
+            <EntityTypeMapping TypeName="equipmentModel.td_Security">
+              <MappingFragment StoreEntitySet="td_Security">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="zdjkASM" ColumnName="zdjkASM" />
+                <ScalarProperty Name="wyfcg" ColumnName="wyfcg" />
+                <ScalarProperty Name="ywglpt" ColumnName="ywglpt" />
+                <ScalarProperty Name="fwqjkpt" ColumnName="fwqjkpt" />
+                <ScalarProperty Name="wljk" ColumnName="wljk" />
+                <ScalarProperty Name="swxwgl" ColumnName="swxwgl" />
+                <ScalarProperty Name="xhgrq" ColumnName="xhgrq" />
+                <ScalarProperty Name="yyfzjh" ColumnName="yyfzjh" />
+                <ScalarProperty Name="sfrzwg" ColumnName="sfrzwg" />
+                <ScalarProperty Name="yjsjsbpp" ColumnName="yjsjsbpp" />
+                <ScalarProperty Name="yjsjsbxh" ColumnName="yjsjsbxh" />
+                <ScalarProperty Name="yjsjsb" ColumnName="yjsjsb" />
+                <ScalarProperty Name="jsmb" ColumnName="jsmb" />
+                <ScalarProperty Name="mmj" ColumnName="mmj" />
+                <ScalarProperty Name="zmaqfhsbpp" ColumnName="zmaqfhsbpp" />
+                <ScalarProperty Name="zmaqfhsbxh" ColumnName="zmaqfhsbxh" />
+                <ScalarProperty Name="zmaqfhsb" ColumnName="zmaqfhsb" />
+                <ScalarProperty Name="VPNsbpp" ColumnName="VPNsbpp" />
+                <ScalarProperty Name="VPNsbxh" ColumnName="VPNsbxh" />
+                <ScalarProperty Name="VPNsb" ColumnName="VPNsb" />
+                <ScalarProperty Name="rqjc" ColumnName="rqjc" />
+                <ScalarProperty Name="fhq" ColumnName="fhq" />
+                <ScalarProperty Name="bswz" ColumnName="bswz" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Network_Dept">
+            <EntityTypeMapping TypeName="equipmentModel.V_Network_Dept">
+              <MappingFragment StoreEntitySet="V_Network_Dept">
+                <ScalarProperty Name="Dept_Order" ColumnName="Dept_Order" />
+                <ScalarProperty Name="Dept_FatherId" ColumnName="Dept_FatherId" />
+                <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="jrcwwwIpdzd" ColumnName="jrcwwwIpdzd" />
+                <ScalarProperty Name="flwck" ColumnName="flwck" />
+                <ScalarProperty Name="wxzjpp" ColumnName="wxzjpp" />
+                <ScalarProperty Name="wxzjxh" ColumnName="wxzjxh" />
+                <ScalarProperty Name="wxzj" ColumnName="wxzj" />
+                <ScalarProperty Name="wxjrd" ColumnName="wxjrd" />
+                <ScalarProperty Name="gx" ColumnName="gx" />
+                <ScalarProperty Name="llfzjhpp" ColumnName="llfzjhpp" />
+                <ScalarProperty Name="llfzjhxh" ColumnName="llfzjhxh" />
+                <ScalarProperty Name="llfzjh" ColumnName="llfzjh" />
+                <ScalarProperty Name="gdjpp" ColumnName="gdjpp" />
+                <ScalarProperty Name="gdjxh" ColumnName="gdjxh" />
+                <ScalarProperty Name="gdj" ColumnName="gdj" />
+                <ScalarProperty Name="lyqpp" ColumnName="lyqpp" />
+                <ScalarProperty Name="lyqxh" ColumnName="lyqxh" />
+                <ScalarProperty Name="lyq" ColumnName="lyq" />
+                <ScalarProperty Name="ecjhjpp" ColumnName="ecjhjpp" />
+                <ScalarProperty Name="ecjhjxh" ColumnName="ecjhjxh" />
+                <ScalarProperty Name="ecjhj" ColumnName="ecjhj" />
+                <ScalarProperty Name="scjhjpp" ColumnName="scjhjpp" />
+                <ScalarProperty Name="scjhjxh" ColumnName="scjhjxh" />
+                <ScalarProperty Name="scjhj" ColumnName="scjhj" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_GenuineSoftware_Dept">
+            <EntityTypeMapping TypeName="equipmentModel.V_GenuineSoftware_Dept">
+              <MappingFragment StoreEntitySet="V_GenuineSoftware_Dept">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="yt" ColumnName="yt" />
+                <ScalarProperty Name="bgrjlx" ColumnName="bgrjlx" />
+                <ScalarProperty Name="IPdz" ColumnName="IPdz" />
+                <ScalarProperty Name="czxtlx" ColumnName="czxtlx" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="Dept_Order" ColumnName="Dept_Order" />
+                <ScalarProperty Name="Dept_FatherId" ColumnName="Dept_FatherId" />
+                <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Security_Dept">
+            <EntityTypeMapping TypeName="equipmentModel.V_Security_Dept">
+              <MappingFragment StoreEntitySet="V_Security_Dept">
+                <ScalarProperty Name="Dept_Order" ColumnName="Dept_Order" />
+                <ScalarProperty Name="Dept_FatherId" ColumnName="Dept_FatherId" />
+                <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="zdjkASM" ColumnName="zdjkASM" />
+                <ScalarProperty Name="wyfcg" ColumnName="wyfcg" />
+                <ScalarProperty Name="ywglpt" ColumnName="ywglpt" />
+                <ScalarProperty Name="fwqjkpt" ColumnName="fwqjkpt" />
+                <ScalarProperty Name="wljk" ColumnName="wljk" />
+                <ScalarProperty Name="swxwgl" ColumnName="swxwgl" />
+                <ScalarProperty Name="xhgrq" ColumnName="xhgrq" />
+                <ScalarProperty Name="yyfzjh" ColumnName="yyfzjh" />
+                <ScalarProperty Name="sfrzwg" ColumnName="sfrzwg" />
+                <ScalarProperty Name="yjsjsbpp" ColumnName="yjsjsbpp" />
+                <ScalarProperty Name="yjsjsbxh" ColumnName="yjsjsbxh" />
+                <ScalarProperty Name="yjsjsb" ColumnName="yjsjsb" />
+                <ScalarProperty Name="jsmb" ColumnName="jsmb" />
+                <ScalarProperty Name="mmj" ColumnName="mmj" />
+                <ScalarProperty Name="zmaqfhsbpp" ColumnName="zmaqfhsbpp" />
+                <ScalarProperty Name="zmaqfhsbxh" ColumnName="zmaqfhsbxh" />
+                <ScalarProperty Name="zmaqfhsb" ColumnName="zmaqfhsb" />
+                <ScalarProperty Name="VPNsbpp" ColumnName="VPNsbpp" />
+                <ScalarProperty Name="VPNsbxh" ColumnName="VPNsbxh" />
+                <ScalarProperty Name="VPNsb" ColumnName="VPNsb" />
+                <ScalarProperty Name="fhq" ColumnName="fhq" />
+                <ScalarProperty Name="rqjc" ColumnName="rqjc" />
+                <ScalarProperty Name="bswz" ColumnName="bswz" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ComputerRoom_Dept">
+            <EntityTypeMapping TypeName="equipmentModel.V_ComputerRoom_Dept">
+              <MappingFragment StoreEntitySet="V_ComputerRoom_Dept">
+                <ScalarProperty Name="fjdsb" ColumnName="fjdsb" />
+                <ScalarProperty Name="Dept_Order" ColumnName="Dept_Order" />
+                <ScalarProperty Name="Dept_FatherId" ColumnName="Dept_FatherId" />
+                <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="fwq" ColumnName="fwq" />
+                <ScalarProperty Name="fcsb" ColumnName="fcsb" />
+                <ScalarProperty Name="fdcgr" ColumnName="fdcgr" />
+                <ScalarProperty Name="fljsb" ColumnName="fljsb" />
+                <ScalarProperty Name="qtmhzz" ColumnName="qtmhzz" />
+                <ScalarProperty Name="fhdb" ColumnName="fhdb" />
+                <ScalarProperty Name="fhm" ColumnName="fhm" />
+                <ScalarProperty Name="UPS" ColumnName="UPS" />
+                <ScalarProperty Name="mhq" ColumnName="mhq" />
+                <ScalarProperty Name="sxt" ColumnName="sxt" />
+                <ScalarProperty Name="kt" ColumnName="kt" />
+                <ScalarProperty Name="jg" ColumnName="jg" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_ComputerRoom">
+            <EntityTypeMapping TypeName="equipmentModel.td_ComputerRoom">
+              <MappingFragment StoreEntitySet="td_ComputerRoom">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="fwq" ColumnName="fwq" />
+                <ScalarProperty Name="fcsb" ColumnName="fcsb" />
+                <ScalarProperty Name="fdcgr" ColumnName="fdcgr" />
+                <ScalarProperty Name="fjdsb" ColumnName="fjdsb" />
+                <ScalarProperty Name="fljsb" ColumnName="fljsb" />
+                <ScalarProperty Name="qtmhzz" ColumnName="qtmhzz" />
+                <ScalarProperty Name="fhdb" ColumnName="fhdb" />
+                <ScalarProperty Name="fhm" ColumnName="fhm" />
+                <ScalarProperty Name="UPS" ColumnName="UPS" />
+                <ScalarProperty Name="mhq" ColumnName="mhq" />
+                <ScalarProperty Name="sxt" ColumnName="sxt" />
+                <ScalarProperty Name="kt" ColumnName="kt" />
+                <ScalarProperty Name="jg" ColumnName="jg" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_GenuineSoftware">
+            <EntityTypeMapping TypeName="equipmentModel.td_GenuineSoftware">
+              <MappingFragment StoreEntitySet="td_GenuineSoftware">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="yt" ColumnName="yt" />
+                <ScalarProperty Name="bgrjlx" ColumnName="bgrjlx" />
+                <ScalarProperty Name="czxtlx" ColumnName="czxtlx" />
+                <ScalarProperty Name="IPdz" ColumnName="IPdz" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_ConstructionProject">
+            <EntityTypeMapping TypeName="equipmentModel.td_ConstructionProject">
+              <MappingFragment StoreEntitySet="td_ConstructionProject">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="lxrsj" ColumnName="lxrsj" />
+                <ScalarProperty Name="lxrdwdh" ColumnName="lxrdwdh" />
+                <ScalarProperty Name="xmlxr" ColumnName="xmlxr" />
+                <ScalarProperty Name="fzrsj" ColumnName="fzrsj" />
+                <ScalarProperty Name="fzrdwdh" ColumnName="fzrdwdh" />
+                <ScalarProperty Name="xmfzr" ColumnName="xmfzr" />
+                <ScalarProperty Name="zjly" ColumnName="zjly" />
+                <ScalarProperty Name="xmys" ColumnName="xmys" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_ResourceCatalog">
+            <EntityTypeMapping TypeName="equipmentModel.td_ResourceCatalog">
+              <MappingFragment StoreEntitySet="td_ResourceCatalog">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="fwl" ColumnName="fwl" />
+                <ScalarProperty Name="gxcs" ColumnName="gxcs" />
+                <ScalarProperty Name="dysjxl" ColumnName="dysjxl" />
+                <ScalarProperty Name="ysjzyl" ColumnName="ysjzyl" />
+                <ScalarProperty Name="zymlsl" ColumnName="zymlsl" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_Terminal">
+            <EntityTypeMapping TypeName="equipmentModel.td_Terminal">
+              <MappingFragment StoreEntitySet="td_Terminal">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="az360tysl" ColumnName="az360tysl" />
+                <ScalarProperty Name="jrzwwwsl" ColumnName="jrzwwwsl" />
+                <ScalarProperty Name="zdsl" ColumnName="zdsl" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ConstructionProject_Dept">
+            <EntityTypeMapping TypeName="equipmentModel.V_ConstructionProject_Dept">
+              <MappingFragment StoreEntitySet="V_ConstructionProject_Dept">
+                <ScalarProperty Name="Dept_Order" ColumnName="Dept_Order" />
+                <ScalarProperty Name="Dept_FatherId" ColumnName="Dept_FatherId" />
+                <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="lxrsj" ColumnName="lxrsj" />
+                <ScalarProperty Name="lxrdwdh" ColumnName="lxrdwdh" />
+                <ScalarProperty Name="xmlxr" ColumnName="xmlxr" />
+                <ScalarProperty Name="fzrsj" ColumnName="fzrsj" />
+                <ScalarProperty Name="fzrdwdh" ColumnName="fzrdwdh" />
+                <ScalarProperty Name="xmfzr" ColumnName="xmfzr" />
+                <ScalarProperty Name="zjly" ColumnName="zjly" />
+                <ScalarProperty Name="xmys" ColumnName="xmys" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ResourceCatalog_Dept">
+            <EntityTypeMapping TypeName="equipmentModel.V_ResourceCatalog_Dept">
+              <MappingFragment StoreEntitySet="V_ResourceCatalog_Dept">
+                <ScalarProperty Name="Dept_Order" ColumnName="Dept_Order" />
+                <ScalarProperty Name="Dept_FatherId" ColumnName="Dept_FatherId" />
+                <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="fwl" ColumnName="fwl" />
+                <ScalarProperty Name="gxcs" ColumnName="gxcs" />
+                <ScalarProperty Name="dysjxl" ColumnName="dysjxl" />
+                <ScalarProperty Name="ysjzyl" ColumnName="ysjzyl" />
+                <ScalarProperty Name="zymlsl" ColumnName="zymlsl" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Terminal_Dept">
+            <EntityTypeMapping TypeName="equipmentModel.V_Terminal_Dept">
+              <MappingFragment StoreEntitySet="V_Terminal_Dept">
+                <ScalarProperty Name="Dept_Order" ColumnName="Dept_Order" />
+                <ScalarProperty Name="Dept_FatherId" ColumnName="Dept_FatherId" />
+                <ScalarProperty Name="Dept_Code" ColumnName="Dept_Code" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="az360tysl" ColumnName="az360tysl" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="jrzwwwsl" ColumnName="jrzwwwsl" />
+                <ScalarProperty Name="zdsl" ColumnName="zdsl" />
+                <ScalarProperty Name="Dept_Id" ColumnName="Dept_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_Network_1">
+            <EntityTypeMapping TypeName="equipmentModel.td_Network_1">
+              <MappingFragment StoreEntitySet="td_Network_1">
+                <ScalarProperty Name="gdj" ColumnName="gdj" />
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="flwck" ColumnName="flwck" />
+                <ScalarProperty Name="wxzj" ColumnName="wxzj" />
+                <ScalarProperty Name="wxjrd" ColumnName="wxjrd" />
+                <ScalarProperty Name="gx" ColumnName="gx" />
+                <ScalarProperty Name="llfzjh" ColumnName="llfzjh" />
+                <ScalarProperty Name="lyq" ColumnName="lyq" />
+                <ScalarProperty Name="ecjhj" ColumnName="ecjhj" />
+                <ScalarProperty Name="scjhj" ColumnName="scjhj" />
+                <ScalarProperty Name="jrzwwwIPdzd" ColumnName="jrzwwwIPdzd" />
+                <ScalarProperty Name="jrgwwzdsl" ColumnName="jrgwwzdsl" />
+                <ScalarProperty Name="jrzwwwzdsl" ColumnName="jrzwwwzdsl" />
+                <ScalarProperty Name="lxdh" ColumnName="lxdh" />
+                <ScalarProperty Name="bgdd" ColumnName="bgdd" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_GenuineSoftware_1">
+            <EntityTypeMapping TypeName="equipmentModel.td_GenuineSoftware_1">
+              <MappingFragment StoreEntitySet="td_GenuineSoftware_1">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="tgsl" ColumnName="tgsl" />
+                <ScalarProperty Name="sftytg" ColumnName="sftytg" />
+                <ScalarProperty Name="yysqs" ColumnName="yysqs" />
+                <ScalarProperty Name="sftytg1" ColumnName="sftytg1" />
+                <ScalarProperty Name="bgrjlx" ColumnName="bgrjlx" />
+                <ScalarProperty Name="yysqs1" ColumnName="yysqs1" />
+                <ScalarProperty Name="yzczxt" ColumnName="yzczxt" />
+                <ScalarProperty Name="czxtlx" ColumnName="czxtlx" />
+                <ScalarProperty Name="sfdbd" ColumnName="sfdbd" />
+                <ScalarProperty Name="az260tqsl" ColumnName="az260tqsl" />
+                <ScalarProperty Name="jrzwwwsl" ColumnName="jrzwwwsl" />
+                <ScalarProperty Name="bjrqzwww" ColumnName="bjrqzwww" />
+                <ScalarProperty Name="bjb" ColumnName="bjb" />
+                <ScalarProperty Name="tsj" ColumnName="tsj" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_Security_1">
+            <EntityTypeMapping TypeName="equipmentModel.td_Security_1">
+              <MappingFragment StoreEntitySet="td_Security_1">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="lxfs" ColumnName="lxfs" />
+                <ScalarProperty Name="sbglryxm" ColumnName="sbglryxm" />
+                <ScalarProperty Name="sfjrzwww" ColumnName="sfjrzwww" />
+                <ScalarProperty Name="dyxt" ColumnName="dyxt" />
+                <ScalarProperty Name="bswz" ColumnName="bswz" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_ComputerRoom_sbsl_1">
+            <EntityTypeMapping TypeName="equipmentModel.td_ComputerRoom_sbsl_1">
+              <MappingFragment StoreEntitySet="td_ComputerRoom_sbsl_1">
+                <ScalarProperty Name="sl" ColumnName="sl" />
+                <ScalarProperty Name="xh" ColumnName="xh" />
+                <ScalarProperty Name="pp" ColumnName="pp" />
+                <ScalarProperty Name="sbmc" ColumnName="sbmc" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_Security_xxsl_1">
+            <EntityTypeMapping TypeName="equipmentModel.td_Security_xxsl_1">
+              <MappingFragment StoreEntitySet="td_Security_xxsl_1">
+                <ScalarProperty Name="gmjq" ColumnName="gmjq" />
+                <ScalarProperty Name="gmrq" ColumnName="gmrq" />
+                <ScalarProperty Name="xh" ColumnName="xh" />
+                <ScalarProperty Name="pp" ColumnName="pp" />
+                <ScalarProperty Name="sl" ColumnName="sl" />
+                <ScalarProperty Name="sfbs" ColumnName="sfbs" />
+                <ScalarProperty Name="aqsbhrjmc" ColumnName="aqsbhrjmc" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_ComputerRoom_1">
+            <EntityTypeMapping TypeName="equipmentModel.td_ComputerRoom_1">
+              <MappingFragment StoreEntitySet="td_ComputerRoom_1">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="lxfs" ColumnName="lxfs" />
+                <ScalarProperty Name="jfglyxm" ColumnName="jfglyxm" />
+                <ScalarProperty Name="sfjrczww" ColumnName="sfjrczww" />
+                <ScalarProperty Name="lsgx" ColumnName="lsgx" />
+                <ScalarProperty Name="jflx" ColumnName="jflx" />
+                <ScalarProperty Name="mj" ColumnName="mj" />
+                <ScalarProperty Name="jfwlwz" ColumnName="jfwlwz" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_Menu">
+            <EntityTypeMapping TypeName="equipmentModel.td_Menu">
+              <MappingFragment StoreEntitySet="td_Menu">
+                <ScalarProperty Name="menu_Note" ColumnName="menu_Note" />
+                <ScalarProperty Name="menu_Stage" ColumnName="menu_Stage" />
+                <ScalarProperty Name="menu_Sort" ColumnName="menu_Sort" />
+                <ScalarProperty Name="menu_Target" ColumnName="menu_Target" />
+                <ScalarProperty Name="menu_Title" ColumnName="menu_Title" />
+                <ScalarProperty Name="menu_Image" ColumnName="menu_Image" />
+                <ScalarProperty Name="menu_Link" ColumnName="menu_Link" />
+                <ScalarProperty Name="menu_FatherId" ColumnName="menu_FatherId" />
+                <ScalarProperty Name="menu_Name" ColumnName="menu_Name" />
+                <ScalarProperty Name="menu_Code" ColumnName="menu_Code" />
+                <ScalarProperty Name="menu_Id" ColumnName="menu_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_Service_1">
+            <EntityTypeMapping TypeName="equipmentModel.td_Service_1">
+              <MappingFragment StoreEntitySet="td_Service_1">
+                <ScalarProperty Name="OperatPid" ColumnName="OperatPid" />
+                <ScalarProperty Name="OperatTime" ColumnName="OperatTime" />
+                <ScalarProperty Name="sfzb" ColumnName="sfzb" />
+                <ScalarProperty Name="sykyxjhsl" ColumnName="sykyxjhsl" />
+                <ScalarProperty Name="jhm" ColumnName="jhm" />
+                <ScalarProperty Name="sfjh" ColumnName="sfjh" />
+                <ScalarProperty Name="xlhbbgl" ColumnName="xlhbbgl" />
+                <ScalarProperty Name="mm1" ColumnName="mm1" />
+                <ScalarProperty Name="yhm1" ColumnName="yhm1" />
+                <ScalarProperty Name="glmm" ColumnName="glmm" />
+                <ScalarProperty Name="glyhm" ColumnName="glyhm" />
+                <ScalarProperty Name="zycd" ColumnName="zycd" />
+                <ScalarProperty Name="sfrb" ColumnName="sfrb" />
+                <ScalarProperty Name="ywsj" ColumnName="ywsj" />
+                <ScalarProperty Name="yp" ColumnName="yp" />
+                <ScalarProperty Name="nc" ColumnName="nc" />
+                <ScalarProperty Name="CPU" ColumnName="CPU" />
+                <ScalarProperty Name="sjkxt" ColumnName="sjkxt" />
+                <ScalarProperty Name="czxt" ColumnName="czxt" />
+                <ScalarProperty Name="zyywyy" ColumnName="zyywyy" />
+                <ScalarProperty Name="jqm" ColumnName="jqm" />
+                <ScalarProperty Name="wg" ColumnName="wg" />
+                <ScalarProperty Name="ym" ColumnName="ym" />
+                <ScalarProperty Name="IPdz" ColumnName="IPdz" />
+                <ScalarProperty Name="jgwz" ColumnName="jgwz" />
+                <ScalarProperty Name="wlwz" ColumnName="wlwz" />
+                <ScalarProperty Name="gdzcbh" ColumnName="gdzcbh" />
+                <ScalarProperty Name="xlh" ColumnName="xlh" />
+                <ScalarProperty Name="cpbb" ColumnName="cpbb" />
+                <ScalarProperty Name="gbrq" ColumnName="gbrq" />
+                <ScalarProperty Name="gmrq" ColumnName="gmrq" />
+                <ScalarProperty Name="xh" ColumnName="xh" />
+                <ScalarProperty Name="fwqbh" ColumnName="fwqbh" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_Service_2">
+            <EntityTypeMapping TypeName="equipmentModel.td_Service_2">
+              <MappingFragment StoreEntitySet="td_Service_2">
+                <ScalarProperty Name="sjmm" ColumnName="sjmm" />
+                <ScalarProperty Name="sjyhm" ColumnName="sjyhm" />
+                <ScalarProperty Name="whmm1" ColumnName="whmm1" />
+                <ScalarProperty Name="whyhm1" ColumnName="whyhm1" />
+                <ScalarProperty Name="glmm" ColumnName="glmm" />
+                <ScalarProperty Name="glyhm" ColumnName="glyhm" />
+                <ScalarProperty Name="czxt" ColumnName="czxt" />
+                <ScalarProperty Name="ypkj" ColumnName="ypkj" />
+                <ScalarProperty Name="nc" ColumnName="nc" />
+                <ScalarProperty Name="CPU" ColumnName="CPU" />
+                <ScalarProperty Name="bz" ColumnName="bz" />
+                <ScalarProperty Name="xtmc" ColumnName="xtmc" />
+                <ScalarProperty Name="Dept_Name" ColumnName="Dept_Name" />
+                <ScalarProperty Name="xnjm" ColumnName="xnjm" />
+                <ScalarProperty Name="tjsj" ColumnName="tjsj" />
+                <ScalarProperty Name="IPdz" ColumnName="IPdz" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

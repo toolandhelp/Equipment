@@ -1,0 +1,110 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/main.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="head">
+        <h1 class="page-title">
+            黄浦区信息化基础资源管理系统
+        </h1>
+        <h2 class="welcome-text">
+            欢迎您，@ViewBag.LogPerson！
+        </h2>
+    </div>
+    <div class="menus">
+        @Html.Raw(ViewBag.LeftAuthMenu)
+        @*<a href="javascript:void(0);" class="menu-link network active" urldata="/Network/Index">网络情况</a>
+        <a href="javascript:void(0);" class="menu-link room" urldata="/ComputerRoom/Index">机房情况</a>
+        <a href="javascript:void(0);" class="menu-link terminal" urldata="/Terminal/Index">终端情况</a>
+        <a href="javascript:void(0);" class="menu-link safeguard" urldata="/Security/Index">安全设备</a>
+        <a href="javascript:void(0);" class="menu-link project" urldata="/ConstructionProject/Index">建设项目</a>
+        <a href="javascript:void(0);" class="menu-link resources" urldata="/ResourceCatalog/Index">资源编目</a>
+        <a href="javascript:void(0);" class="menu-link software" urldata="/GenuineSoftware/Index" >正版软件</a>*@
+    </div>
+    <div id="content">
+        <iframe id="mainFrame" name="mainFrame" marginwidth="0" marginheight="0" scrolling="auto" frameborder="0"></iframe>
+    </div>
+</body>
+</html>
+
+<script src="/Scripts/require/require/2.2.0/require.js"></script>
+<script src="/Scripts/require/config/1.0.0/require.config.js"></script>
+<script type="text/javascript">
+    require(["jquery", "MISSY", "CustomScroll"], function () {
+        var layerWinIdx = -1;
+        $(function () {
+            InitResizeWindow();
+            // initPage();
+
+            //如果用了上面的下面的就不要用了
+            $(".menus>a").click(function () {
+                $(".menus>a.active").removeClass("active");
+                $(this).addClass("active");
+                var itemUrl = $(this).attr("urldata");
+                itemUrl = itemUrl ? itemUrl + (itemUrl.indexOf("?") > 0 ? "&" : "?") + "_r=" + Math.random() : "javascript:;";
+                $("#mainFrame").prop("src", itemUrl);
+            });
+            $(".menus>a:eq(0)").click();
+        });
+        function InitResizeWindow() {
+            ResizeWindowIndex();
+            $(window).resize(function () { ResizeWindowIndex(); });
+        };
+
+        function ResizeWindowIndex() {
+            var heightW = $(window).height() - $(".head").outerHeight() - 5;
+            $(".left-menu").outerHeight(heightW);
+            var rightWidth = $(window).width() - $(".left-menu").outerWidth() - 20;
+            $("#mainFrame").outerHeight(heightW).width(rightWidth);
+        };
+
+        function initPage() {
+            $.ajax({
+                url: 'LeftAuthMenu',
+                type: 'POST',
+                data: { parent: "0" },
+                async: false,
+                dataType: "json",
+                beforeSend: function () {
+                    $(".menus").html("<div style='width:120px;margin: 0 auto;color:#fff'><img src= '/Images/loading.gif' width= '32px' height= '32px' align= 'absmiddle'/> 正加载...</div>");
+                },
+                ContentType: "application/json;charset=utf-8",
+                success: function (responseList) {
+                    var buf = [];
+                    for (var i = 0; i < responseList.length; i++) {
+                        var modelParent = responseList[i];
+                        buf.push("<a href=\"javascript:void(0);\" class=\"menu-link " + modelParent.iconSkin + "\" urldata=" + modelParent.Url + ">" + modelParent.Title + "</a>");
+                    }
+                    $(".menus").html(buf.join(""));
+
+
+                    $(".menus>a").click(function () {
+                        $(".menus>a.active").removeClass("active");
+                        $(this).addClass("active");
+                        var itemUrl = $(this).attr("urldata");
+                        itemUrl = itemUrl ? itemUrl + (itemUrl.indexOf("?") > 0 ? "&" : "?") + "_r=" + Math.random() : "javascript:;";
+                        $("#mainFrame").prop("src", itemUrl);
+                    });
+                    $(".menus>a:eq(0)").click();
+                },
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
+                    MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                    $(".menus").html("数据加载失败,请稍后再试.");
+                }
+            });
+        };
+
+    });
+
+</script>
+

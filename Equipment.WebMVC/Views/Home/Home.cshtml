@@ -1,0 +1,666 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/idangerous.swiper.css">
+    <link rel="stylesheet" href="~/Content/main.css">
+
+    <title>首页</title>
+    <style>
+        html {
+            background: #fcfcfc;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h1 class="page-title">
+            黄浦区信息化基础资源管理系统
+        </h1>
+        <h2 class="welcome-text">
+            欢迎您，@ViewBag.LogPerson！
+            @*进入后台<a href="/Login/Index">登陆</a>*@
+        </h2>
+    </div>
+    <div class="nav">
+        <a href="javascript:;" class="menu-link home active">
+            <span class="menu-text">首页</span>
+            <div class="menu-bg"></div>
+        </a>
+        <a href="javascript:;" class="menu-link network ">
+            <span class="menu-text">网络情况</span>
+            <div class="menu-bg"></div>
+        </a>
+        <a href="javascript:;" class="menu-link room">
+            <span class="menu-text">机房情况</span>
+            <div class="menu-bg"></div>
+        </a>
+        <a href="javascript:;" class="menu-link terminal">
+            <span class="menu-text">终端情况</span>
+            <div class="menu-bg"></div>
+        </a>
+        <a href="javascript:;" class="menu-link safeguard">
+            <span class="menu-text">安全设备</span>
+            <div class="menu-bg"></div>
+        </a>
+        <a href="javascript:;" class="menu-link project">
+            <span class="menu-text">建设项目</span>
+            <div class="menu-bg"></div>
+        </a>
+        <a href="javascript:;" class="menu-link resources">
+            <span class="menu-text">资源编目</span>
+            <div class="menu-bg"></div>
+        </a>
+        <a href="javascript:;" class="menu-link software">
+            <span class="menu-text">正版软件</span>
+            <div class="menu-bg"></div>
+        </a>
+    </div>
+    <div class="nav-slide">
+        <div class="sli-box">
+            <div class="sli">
+                <div class="item network">
+                    <h3 class="item-title">网络情况</h3>
+                    <div class="sm-chart" id="sm-network"></div>
+                </div>
+            </div>
+            <div class="sli">
+                <div class="item room">
+                    <h3 class="item-title">机房情况</h3>
+                    <div class="sm-chart" id="sm-room"></div>
+                </div>
+            </div>
+            <div class="sli">
+                <div class="item terminal">
+                    <h3 class="item-title">终端情况</h3>
+                    <div class="sm-chart" id="sm-terminal"></div>
+                </div>
+            </div>
+            <div class="sli">
+                <div class="item safeguard">
+                    <h3 class="item-title">安全设备</h3>
+                    <div class="sm-chart" id="sm-safeguard"></div>
+                </div>
+            </div>
+            <div class="sli">
+                <div class="item project">
+                    <h3 class="item-title">建设项目</h3>
+                    <div class="sm-chart" id="sm-res"></div>
+
+                </div>
+            </div>
+            <div class="sli ">
+                <div class="item resources">
+                    <h3 class="item-title">资源编目</h3>
+                    <div class="sm-chart" id="sm-resources"></div>
+                </div>
+            </div>
+            <div class="sli ">
+                <div class="item software">
+                    <h3 class="item-title">正版软件</h3>
+                    <div class="sm-chart" id="sm-software"></div>
+                </div>
+            </div>
+        </div>
+        <button class="btn-ctrl ctrl-left"></button>
+        <button class="btn-ctrl ctrl-right"></button>
+    </div>
+    <div class="chart-content">
+        <!--第一行图表-->
+
+        <div class="chart-item">
+            <h3 class="chart-title">全区线缆概况</h3>
+            <div class="map-box">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="~/Images/map.png" alt=""></div>
+                        <div class="swiper-slide"><img src="~/Images/map.png" alt=""></div>
+                        <div class="swiper-slide"><img src="~/Images/map.png" alt=""></div>
+                    </div>
+                    <div class="pagination"></div>
+                </div>
+            </div>
+        </div>
+        <div class="blank"></div>
+        <div class="chart-item">
+            <h3 class="chart-title bd-green">全区硬件设备概况</h3>
+            <div class="hardware-info">
+                <p>网络情况：全区三层交换箱<span class="number">@ViewBag.jhj</span>个、光缆<span class="number">@ViewBag.gx</span>根、无线接入点<span class="number">@ViewBag.wxjrd </span>个。</p>
+                <p>机房情况：全区物理机房数量<span class="number">@ViewBag.jfsl</span>个。面积共<span class="number">1000m2</span>。</p>
+                <p>终端情况：全区终端数<span class="number">@ViewBag.zd </span>台、介入外网<span class="number">@ViewBag.jrww</span>台、安装360天擎<span class="number">@ViewBag.az360</span>台。</p>
+                <p>安全设备：全区防火墙共部署<span class="number">@ViewBag.fwq</span>个、VPN设备<span class="number">@ViewBag.VPN</span>台</p>
+                <p>建设项目：全区共新建项目<span class="number">@ViewBag.xxm</span>个、运维项目<span class="number">400</span>个</p>
+                <p>资源编目：全区资源目录共<span class="number">@ViewBag.zyml </span>个、元数据<span class="number">@ViewBag.ysj</span>个、共享资源<span class="number">@ViewBag.gxzy</span>次、访问资源<span class="number">@ViewBag.fwzy</span>次</p>
+                <p>正版软件：全区正版操作系统共 <span class="number">@ViewBag.czxt</span>个、安装<span class="number">360</span>天擎 <span class="number">@ViewBag.az360 </span>台</p>
+            </div>
+
+
+        </div>
+        <!--第二行图表-->
+
+        <div class="chart-item">
+            <h3 class="chart-title bg-gray">建设项目统计</h3>
+
+            <div class="chart-box" id="line-box"></div>
+            <div class="chart-table">
+                <table>
+                    <tr>
+                        <th>部门</th>
+                        <th>2011年</th>
+                        <th>2012年</th>
+                        <th>2013年</th>
+                        <th>2014年</th>
+                        <th>2015年</th>
+                        <th>2016年</th>
+                        <th>2017年</th>
+                    </tr>
+                    <tr>
+                        <td>区科委</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                    </tr>
+                    <tr>
+                        <td>区科委</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                    </tr>
+                    <tr>
+                        <td>区科委</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                    </tr>
+                    <tr>
+                        <td>区科委</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                    </tr>
+                    <tr>
+                        <td>区科委</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                    </tr>
+                    <tr>
+                        <td>区科委</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                    </tr>
+                    <tr>
+                        <td>区科委</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                    </tr>
+                    <tr>
+                        <td>区委</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                        <td>23个</td>
+                    </tr>
+
+                </table>
+            </div>
+            <a href="javascript:;" class="change-table"></a>
+        </div>
+        <div class="blank"></div>
+        <div class="chart-item">
+            <h3 class="chart-title bg-blue">资源编目统计</h3>
+
+            <div class="chart-box" id="bar-box"></div>
+            <div class="chart-table">
+                <table>
+                    <tr id="bar-box-th">
+                        <th>单位</th>
+                        <th>区科委</th>
+                        <th>区财政局</th>
+                        <th>区民政局</th>
+                        <th>区卫计局</th>
+                        <th>区公安局</th>
+                        <th>区教育局</th>
+                        <th>区检察院</th>
+                        <th>区法院</th>
+                        <th>区建交委</th>
+                        <th>区残联</th>
+                    </tr>
+                    <tr id="bar-box-td">
+                        <td>编目数</td>
+                        <td>11个</td>
+                        <td>12个</td>
+                        <td>13个</td>
+                        <td>14个</td>
+                        <td>15个</td>
+                        <td>16个</td>
+                        <td>17个</td>
+                        <td>17个</td>
+                        <td>17个</td>
+                        <td>17个</td>
+                    </tr>
+                </table>
+            </div>
+            <a href="javascript:;" class="change-table"></a>
+        </div>
+        <!--第三行图表-->
+
+        <div class="chart-item w30">
+            <h3 class="chart-title bg-blue">终端数量排行</h3>
+
+            <div class="chart-box" id="hardware-count"></div>
+        </div>
+        <div class="blank"></div>
+        <div class="chart-item w30">
+            <h3 class="chart-title bg-blue">接入外网数量排行</h3>
+
+            <div class="chart-box" id="connect-count"></div>
+        </div>
+        <div class="blank"></div>
+        <div class="chart-item w30">
+            <h3 class="chart-title bg-blue">360软件排行</h3>
+
+            <div class="chart-box" id="360-count"></div>
+        </div>
+
+
+    </div>
+</body>
+
+
+</html>
+
+
+<script src="/Index_script/jquery-1.10.1.min.js"></script>
+<script src="/Index_script/idangerous.swiper.js"></script>
+<script src="/Index_script/echarts.min.js"></script>
+<script src="/Index_script/index.js"></script>
+<script src="/Index_script/chartsData.js"></script>
+<script>
+    (function () {
+        var sli_left = 0;
+        var step = 1;
+        var index = 0;
+
+        var flag = true;
+
+        function nextPic() {
+            flag = false;
+            var itemWidth = $('.sli').outerWidth();
+            sli_left = 0;
+            var timer = null;
+            if (index >= 3) {
+                clearInterval(timer);
+                //        index = 0;
+                //        prePic();
+                //        $('.sli-box').animate({
+                //          left: 0
+                //        }, 500);
+                flag = true;
+
+
+                return;
+            }
+            timer = setInterval(function () {
+                sli_left += step;
+                $('.sli-box').css({
+                    left: -(itemWidth * index + sli_left) + 'px'
+                });
+
+                if (sli_left >= itemWidth) {
+                    flag = true;
+
+                    clearInterval(timer);
+                    index++;
+                }
+            }, 3);
+
+
+        }
+
+        function prePic() {
+            flag = false;
+            var itemWidth = $('.sli').outerWidth();
+            sli_left = 0;
+            var timer = null;
+            if (index <= 0) {
+                //        index = 3;
+                //        $('.sli-box').animate({
+                //          left: -index * itemWidth + 'px'
+                //        }, 500);
+                flag = true;
+
+                return;
+            }
+            timer = setInterval(function () {
+                sli_left += step;
+                $('.sli-box').css({
+                    left: (itemWidth * -index + sli_left) + 'px'
+                });
+                if (sli_left >= itemWidth) {
+                    flag = true;
+
+                    clearInterval(timer);
+                    index--;
+
+                }
+            }, 3);
+        }
+
+        $('.ctrl-right').on('click', function () {
+            if (flag) {
+                nextPic();
+            }
+
+        })
+        $('.ctrl-left').on('click', function () {
+            if (flag) {
+                prePic();
+            }
+        })
+
+        function autoPlay() {
+
+            var current = 0;
+            var dir = true;
+
+            var playTimer = null;
+            playTimer = setInterval(function () {
+                if (dir) {
+                    current++;
+                    nextPic();
+                    console.log(dir, current);
+                    if (current >= 3) {
+                        dir = false;
+                    }
+                } else {
+                    current--;
+                    prePic();
+                    console.log(dir, current);
+
+                    if (current <= 0) {
+                        dir = true;
+                    }
+                }
+
+
+            }, 2000);
+            $('.nav-slide').mouseover(function () {
+                clearInterval(playTimer)
+            })
+                .mouseleave(function () {
+                    playTimer = setInterval(function () {
+                        if (dir) {
+                            current++;
+                            nextPic();
+                            console.log(dir, current);
+                            if (current >= 3) {
+                                dir = false;
+                            }
+                        } else {
+                            current--;
+                            prePic();
+                            console.log(dir, current);
+
+                            if (current <= 0) {
+                                dir = true;
+                            }
+                        }
+
+
+                    }, 2000);
+                })
+        };
+        autoPlay();
+
+
+        //图表
+
+        //!接入外网数量排行
+        var jrwwsjphAxisData=[], jrwwsjphseriesData=[];
+
+        $.ajax({
+            url: 'JrwwsjphApi',
+            type: 'POST',
+            dataType: "json",
+            async: false,
+            beforeSend: function () { $("#connect-count").html("<div style='width:120px;margin: 0 auto;'><img src='/Images/loading.gif' width='32px' height='32px' align='absmiddle' /> 正在加载．．．</div>"); },
+            ContentType: "application/json;charset=utf-8",
+            success: function (responseList) {
+                if (responseList.ErrorType == "1") {
+                    for (var i = 0; i < responseList.Entity.length; i++) {
+                        jrwwsjphAxisData.push(responseList.Entity[i].jrwwsjphAxisData);
+                        jrwwsjphseriesData.push(responseList.Entity[i].jrwwsjphseriesData);
+                    }
+                }
+            },
+            error: function (xmlHttpRequest, textStatus, errorThrown) {
+                MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                $("#connect-count").html("数据加载失败,请稍后再试！");
+            }
+        });
+
+
+        var connectOption = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            formatter: '{c}(台)',
+
+            // legend: {
+            //   data: ['2017年']
+            // },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                top: '4%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+
+            },
+            yAxis: {
+
+                type: 'category',
+                data: jrwwsjphAxisData
+            },
+            series: [
+                {
+                    name: '2017年',
+                    type: 'bar',
+                    barWidth: '12px',
+                    data: jrwwsjphseriesData
+                }
+            ]
+        };
+        var connectChart = echarts.init(document.getElementById('connect-count'), {
+            renderer: 'canvas',
+            width: 'auto',
+            height: 'auto'
+        });
+        connectChart.setOption(connectOption);
+
+        //!终端数量排行 
+        var zdsjphAxisData = [], zdsjphseriesData = [];
+
+        $.ajax({
+            url: 'ZdsjphApi',
+            type: 'POST',
+            dataType: "json",
+            async: false,
+            beforeSend: function () { $("#hardware-count").html("<div style='width:120px;margin: 0 auto;'><img src='/Images/loading.gif' width='32px' height='32px' align='absmiddle' /> 正在加载．．．</div>"); },
+            ContentType: "application/json;charset=utf-8",
+            success: function (responseList) {
+                if (responseList.ErrorType == "1") {
+                    for (var i = 0; i < responseList.Entity.length; i++) {
+                        zdsjphAxisData.push(responseList.Entity[i].zdsjphAxisData);
+                        zdsjphseriesData.push(responseList.Entity[i].zdsjphseriesData);
+                    }
+                }
+            },
+            error: function (xmlHttpRequest, textStatus, errorThrown) {
+                MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                $("#hardware-count").html("数据加载失败,请稍后再试！");
+            }
+        });
+
+
+        var hardWareOption = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            formatter: '{c}(台)',
+
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                top: '4%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.01]
+
+            },
+            yAxis: {
+
+                type: 'category',
+                data: zdsjphAxisData
+            },
+            series: [
+                {
+                    name: '2017年',
+                    type: 'bar',
+                    barWidth: '12px',
+                    data: zdsjphseriesData
+                }
+            ]
+        };
+        var hardWareChart = echarts.init(document.getElementById('hardware-count'), {
+            renderer: 'canvas',
+            width: 'auto',
+            height: 'auto'
+        });
+        hardWareChart.setOption(hardWareOption);
+
+
+        //!360软件统计 饼图
+
+        var Software360legendData = [], Software360seriesData = [];
+
+        $.ajax({
+            url: 'Software360Api',
+            type: 'POST',
+            dataType: "json",
+            async: false,
+            beforeSend: function () { $("#360-count").html("<div style='width:120px;margin: 0 auto;'><img src='/Images/loading.gif' width='32px' height='32px' align='absmiddle' /> 正在加载．．．</div>"); },
+            ContentType: "application/json;charset=utf-8",
+            success: function (responseList) {
+                if (responseList.ErrorType == "1") {
+                    for (var i = 0; i < responseList.Entity.length; i++) {
+                        Software360legendData.push(responseList.Entity[i].name);
+                    }
+                    Software360seriesData = responseList.Entity;
+                }
+            },
+            error: function (xmlHttpRequest, textStatus, errorThrown) {
+                MISSY.iDebugAjaxError(xmlHttpRequest, textStatus, errorThrown);
+                $("#360-count").html("数据加载失败,请稍后再试！");
+            }
+        });
+
+        var pieOption = {
+            title: {
+                text: '安装360数量',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: Software360legendData
+            },
+            series: [
+                {
+                    name: '访问来源',
+                    type: 'pie',
+                    radius: '65',
+                    center: ['50%', '60%'],
+                    data: Software360seriesData,
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        var pieChart = echarts.init(document.getElementById('360-count'), {
+            renderer: 'canvas',
+            width: 'auto',
+            height: 'auto'
+        });
+        pieChart.setOption(pieOption);
+
+
+
+
+    })()
+
+
+</script>
